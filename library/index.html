@@ -3,9 +3,45 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="./favicon_io/site.webmanifest">
+	<!-- Forum font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+	<!-- normalize.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+	<link rel="stylesheet" href="./style.css">
+
+	<script src="./index.js" defer ></script>
 	<title>Library</title>
 </head>
 <body>
-	<h1>Library</h1>
+	<header class="header-container _wrapper">
+		<h1 class="title"><a id="main-link" href="#">Brooklyn Public Library</a></h1>
+		<nav class="navmenu">
+			<ul class="navmenu__links">
+				<li><a href="#" class="navmenu__link">About</a></li>
+				<li><a href="#" class="navmenu__link">Favorites</a></li>
+				<li><a href="#" class="navmenu__link">Coffee shop</a></li>
+				<li><a href="#" class="navmenu__link">Contacts</a></li>
+				<li><a href="#" class="navmenu__link">Library Card</a></li>
+			</ul>
+		</nav>
+		<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon" ></a>
+	</header>
+	<main >
+		<section class="_wrapper" id="welcome">
+			<h2 class="greeting">Welcome&NewLine;to the Brooklyn&NewLine;Library</h2>
+		</section>
+	</main>
+	<footer></footer>
+
 </body>
 </html>
