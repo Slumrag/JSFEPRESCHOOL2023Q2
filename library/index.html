@@ -17,28 +17,32 @@
 	<link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 	<!-- normalize.css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./styles/style.css">
 
-	<script src="./index.js" defer ></script>
+	<script src="./scripts/index.js" defer ></script>
 	<title>Library</title>
 </head>
 <body>
-	<header class="header-container _wrapper">
-		<h1 class="title"><a id="main-link" href="#">Brooklyn Public Library</a></h1>
-		<nav class="navmenu">
-			<ul class="navmenu__links">
-				<li><a href="#" class="navmenu__link">About</a></li>
-				<li><a href="#" class="navmenu__link">Favorites</a></li>
-				<li><a href="#" class="navmenu__link">Coffee shop</a></li>
-				<li><a href="#" class="navmenu__link">Contacts</a></li>
-				<li><a href="#" class="navmenu__link">Library Card</a></li>
-			</ul>
-		</nav>
-		<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon" ></a>
+	<header class="header-container full-bleed">
+		<div class="header__content _wrapper">
+			<h1 class="title"><a id="main-link" href="#">Brooklyn Public Library</a></h1>
+			<nav class="navmenu">
+				<ul class="navmenu__links">
+					<li><a href="#" class="navmenu__link">About</a></li>
+					<li><a href="#" class="navmenu__link">Favorites</a></li>
+					<li><a href="#" class="navmenu__link">Coffee shop</a></li>
+					<li><a href="#" class="navmenu__link">Contacts</a></li>
+					<li><a href="#" class="navmenu__link">Library Card</a></li>
+				</ul>
+			</nav>
+			<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon" ></a>
+		</div>
 	</header>
-	<main >
-		<section class="_wrapper" id="welcome">
-			<h2 class="greeting">Welcome&NewLine;to the Brooklyn&NewLine;Library</h2>
+	<main>
+		<section class="full-bleed" id="welcome">
+			<div class="section-content _wrapper">
+				<h2 class="greeting">Welcome&NewLine;to the Brooklyn&NewLine;Library</h2>
+			</div>
 		</section>
 	</main>
 	<footer></footer>
