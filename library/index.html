@@ -28,24 +28,44 @@
 			<h1 class="title"><a id="main-link" href="#">Brooklyn Public Library</a></h1>
 			<nav class="navmenu">
 				<ul class="navmenu__links">
-					<li><a href="#" class="navmenu__link">About</a></li>
-					<li><a href="#" class="navmenu__link">Favorites</a></li>
-					<li><a href="#" class="navmenu__link">Coffee shop</a></li>
-					<li><a href="#" class="navmenu__link">Contacts</a></li>
-					<li><a href="#" class="navmenu__link">Library Card</a></li>
+					<li><a href="#about" class="navmenu__link">About</a></li>
+					<li><a href="#favorites" class="navmenu__link">Favorites</a></li>
+					<li><a href="#coffee-shop" class="navmenu__link">Coffee shop</a></li>
+					<li><a href="#contacts" class="navmenu__link">Contacts</a></li>
+					<li><a href="#library-card" class="navmenu__link">Library Card</a></li>
 				</ul>
 			</nav>
-			<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon" ></a>
+			<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
 		</div>
 	</header>
 	<main>
-		<section class="full-bleed" id="welcome">
-			<div class="section-content _wrapper">
-				<h2 class="greeting">Welcome&NewLine;to the Brooklyn&NewLine;Library</h2>
+		<section class="sc-welcome full-bleed">
+			<div class="_wrapper">
+				<h2 class="greeting">Welcome &NewLine;to the Brooklyn&NewLine;Library</h2>
+			</div>
+		</section>
+		<section class="sc-about _wrapper" id="about">
+			<div class="section-content ">
+				<h2 class="section__title">About</h2>
+				<p class="section__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+				<div class="carousel">
+					<div class="carousel__items">
+						<img class="carousel__image" src="./assets/images/book_isle.png" alt="book isle">
+						<img class="carousel__image" src="./assets/images/busts.png" alt="busts">
+						<img class="carousel__image" src="./assets/images/bookshelves.png" alt="book shelves">
+					</div>
+					<div class="pagination">
+						<button class="pagination__button pagination__button_active"></button>
+						<button class="pagination__button"></button>
+						<button class="pagination__button "></button>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
-	<footer></footer>
+	<footer class="footer-container">
+
+	</footer>
 
 </body>
 </html>

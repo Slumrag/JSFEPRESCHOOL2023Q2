@@ -7,13 +7,15 @@
 	--text-color-dark:#000000;
 	--text-color-light:#FFFFFF;
 	--bg-color:#0C0C0E;
+	--color-active:#BB945F;
+	--color-disabled:#8E8E8E;
 }
 * {
 	box-sizing: border-box;
 }
 html {
 	font-size: 10px;
-	background: gray;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -21,6 +23,7 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	font: var(--content-font);
+	overflow-x: hidden;
 }
 ol,
 ul,
@@ -48,7 +51,11 @@ h6 {
 p {
 	margin: 0;
 }
-
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
 ._wrapper {
 	margin-left: auto;
 	margin-right: auto;
@@ -109,7 +116,7 @@ p {
 	width: 28px;
 }
 
-#welcome {
+.sc-welcome {
 	min-height: 600px;
 
 	background:	linear-gradient(180deg, var(--bg-color) 0%, var(--bg-color) 0.01%, rgba(18, 18, 21, 0.10) 100%),
@@ -136,6 +143,90 @@ p {
 	line-height: 1.25;
 	text-transform: uppercase;
 	text-align: center;
-	white-space: pre-line;
+	white-space: pre;
 	letter-spacing: 3px;
+}
+
+
+.section-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* about section */
+.sc-about {
+	height: 837px;
+	padding: 20px 20px 40px;
+}
+.section__title {
+	margin-bottom: 20px;
+
+	font-size: 4rem;
+	letter-spacing: 2px;
+	line-height: 4rem;
+	color: var(--bg-color);
+	text-align: center;
+}
+.section__title::before {
+	content:"";
+	position: relative;
+	left: calc(50% / 2);
+	top: calc(4rem + 20px);
+
+	display: block;
+	width: 50px;
+	height: 1px;
+	background: var(--bg-color);
+}
+
+.section__text {
+	margin: 4rem 0 2rem;
+	line-height: 4rem;
+}
+
+.carousel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+.carousel__items {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 25px;
+}
+.carousel__image {
+	width: 450px;
+	height: 560px;
+	object-fit: cover;
+}
+
+.pagination {
+	width: 68px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.pagination__button {
+	width: 16px;
+	height: 16px;
+	background: var(--bg-color);
+	border-radius: 50%;
+}
+
+.pagination__button_active,
+.pagination__button:active {
+	background: var(--color-active);
+}
+.pagination__button_hover,
+.pagination__button:hover {
+	cursor: pointer;
+	transition: all;
+}
+
+/* footer */
+.footer-container {
+	flex: 1;
+	height: 250px;
 }
