@@ -1,0 +1,51 @@
+.header-container {
+	background: var(--bg-color);
+}
+
+.header__content {
+	position: relative;
+	width: 100%;
+	padding: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.header__content>.title {
+	flex-grow: 1;
+}
+
+.title {
+	letter-spacing: 0.6px;
+}
+
+#main-link {
+	color: var(--text-color-light);
+}
+
+.navmenu {
+	display: flex;
+}
+
+.navmenu__links {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+.navmenu__link {
+	font: var(--content-font);
+	color: var(--text-color-light);
+}
+
+.navmenu__link:hover {
+	text-decoration: underline;
+}
+
+.profile-icon {
+	margin-left: 40px;
+	height: 28px;
+	width: 28px;
+}

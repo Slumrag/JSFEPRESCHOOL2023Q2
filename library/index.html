@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 	<!-- normalize.css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-	<link rel="stylesheet" href="./styles/style.css">
+	<link rel="stylesheet" href="./styles/styles.css">
 
 	<script src="./scripts/index.js" defer ></script>
 	<title>Library</title>
@@ -47,7 +47,7 @@
 		<section class="sc-about _wrapper" id="about">
 			<div class="section-content ">
 				<h2 class="section__title">About</h2>
-				<p class="section__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+				<p class="about-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
 				<div class="carousel">
 					<div class="carousel__items">
 						<img class="carousel__image" src="./assets/images/book_isle.png" alt="book isle">
@@ -59,6 +59,38 @@
 						<button class="pagination__button"></button>
 						<button class="pagination__button "></button>
 					</div>
+				</div>
+			</div>
+		</section>
+		<section class="sc-favorites  _wrapper" id="favorites">
+			<div class="section-content">
+				<h2 class="section__title">Favorites</h2>
+				<div class="picker">
+					<h3 class="picker__title">Pick favorites of season</h3>
+					<div class="picker__options options">
+						<div class="options__item">
+							<label class="options__label" for="winter">Winter</label>
+							<input class="options__radio" name="seasons" id="winter" type="radio" value="winter">
+						</div>
+						<div class="options__item">
+							<label class="options__label" for="spring">spring</label>
+							<input class="options__radio" name="seasons" id="spring" type="radio" value="spring">
+						</div>
+						<div class="options__item">
+							<label class="options__label" for="summer">summer</label>
+							<input class="options__radio" name="seasons" id="summer" type="radio" value="summer">
+						</div>
+						<div class="options__item">
+							<label class="options__label" for="autumn">autumn</label>
+							<input class="options__radio" name="seasons" id="autumn" type="radio" value="autumn">
+						</div>
+					</div>
+				</div>
+				<div class="cards">
+					<div class="card"></div>
+					<div class="card"></div>
+					<div class="card"></div>
+					<div class="card"></div>
 				</div>
 			</div>
 		</section>

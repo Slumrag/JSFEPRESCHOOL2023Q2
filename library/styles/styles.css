@@ -1,0 +1,13 @@
+@import url(./vars.css);
+@import url(./reset.css);
+@import url(./global.css);
+/* header */
+@import url(./components/header.css);
+/* welcome */
+@import url(./components/welcome.css);
+/* about section */
+@import url(./components/about.css);
+/* favorites */
+@import url(./components/favorites.css);
+/* footer */
+@import url(./components/footer.css);
