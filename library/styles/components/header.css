@@ -41,7 +41,7 @@
 }
 
 .navmenu__link:hover {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 }
 
 .profile-icon {
