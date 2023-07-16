@@ -118,7 +118,7 @@
 						<h4 class="card__title"><span class="uppercase">The Last Queen</span>&NewLine;By Clive Irving</h4>
 						<p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and
 						thrived as the modern world has changed around them.</p>
-						<button class="card__button button button_active"  >Own</button>
+						<button class="card__button button" disabled>Own</button>
 						<img class="card__image" src="./assets/images/the_last_queen_book.png" alt="The last queen cover">
 					</div>
 				</div>
@@ -204,7 +204,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="_wrapper" id="our-contacts">
+		<section class="_wrapper" id="contacts">
 			<div class="section-content">
 				<h2 class="section__title">Our Contacts</h2>
 				<div class="contact-info">
@@ -221,6 +221,32 @@
 						</div>
 					</div>
 					<img src="./assets/images/map.png" alt="map" class="section__map">
+				</div>
+			</div>
+		</section>
+		<section class="_wrapper" id="library-card">
+			<div class="section-content">
+				<h2 class="section__title">Digital Library Cards</h2>
+				<div class="forms-wrapper">
+					<div class="find-card">
+						<h4 class="find-card__title">Find your Library card</h4>
+						<form class="find-card__form" action="/" id="card-form">
+							<div class="card-inputs">
+								<label class="card-inputs__label" for="">Brooklyn Public Library</label>
+								<input class="card-inputs__text text-input" type="text" name="card-data" id="reader-name" placeholder="Reader's name">
+								<input class="card-inputs__text text-input" type="text" name="card-data" id="card-num" placeholder="Card number" inputmode="numeric">
+							</div>
+							<input class="button submit-button" type="submit" value="Check the card">
+						</form>
+					</div>
+					<div class="get-card">
+						<h4 class="get-card__title">Get a reader card</h4>
+						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
+						<div class="get-card__buttons">
+							<a class="button sign-up" href="." target="_blank">Sign Up</a>
+							<a class="button log-in" href="." target="_blank">Log in</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

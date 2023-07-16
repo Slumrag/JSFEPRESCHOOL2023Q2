@@ -70,12 +70,24 @@
 .button:active,
 .button_active {
 	cursor: pointer;
+	background-color: var(--color-active);
+	border-color:var(--color-active);
+}
+.button:disabled,
+.button_disabled {
+	cursor: not-allowed;
 	color: var(--color-active);
 	border-color: var(--color-active);
+	background-color: transparent;
 }
-.button:disabled {
-	cursor: not-allowed;
-	background: var(--color-disabled);
-	border-color: darkgrey;
-	color: darkgrey;
+.text-input {
+	padding: 8px 20px;
+	font:var(--header-font);
+	color:var(--color-active);
+	font-size: 3rem;
+	border-radius: 10px;
+	background: #FFF;
+}
+.text-input::placeholder{
+	color: var(--color-disabled);
 }

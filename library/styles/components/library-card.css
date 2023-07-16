@@ -1,0 +1,88 @@
+.forms-wrapper {
+	display: flex;
+	align-self: stretch;
+	justify-content: space-between;
+}
+
+.find-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+.find-card__title {
+	font:var(--content-font);
+	font-size: 3rem;
+	line-height: normal;
+	letter-spacing: 0.6px;
+}
+
+.find-card__form {
+	padding: 20px 20px 30px;
+	border: 3px solid var(--color-active);
+	width: 600px;
+	height: 386px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-inputs {
+	padding: 20px 20px 25px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background: var(--color-active);
+}
+
+.card-inputs__label {
+	font: var(--header-font);
+	font-size: 3rem;
+	line-height: 5rem;
+	letter-spacing: 0.6px;
+}
+
+.card-inputs__text:nth-child(2) {
+	margin-bottom: 5px;
+}
+.submit-button {
+	align-self: center;
+	font-size: 2rem;
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+.get-card {
+	max-width: 456px;
+	display: flex;
+	flex-direction: column;
+	justify-self: end;
+	gap: 35px;
+	text-align: end;
+	align-items: end;
+}
+
+.get-card__title {
+	font-size: 3rem;
+	line-height: normal;
+	letter-spacing: 0.6px;
+}
+
+.get-card__description {
+	line-height: 4rem;
+	letter-spacing: 0.4px;
+
+}
+
+.get-card__buttons {
+	display: flex;
+	gap: 20px;
+}
+.sign-up,
+.log-in {
+	width: 75px;
+	height: 30px;
+	text-transform: capitalize;
+}
