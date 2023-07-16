@@ -1,0 +1,40 @@
+.contact-info {
+	display: flex;
+	align-self: stretch;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.contacts {
+	display: flex;
+	flex-direction: column;
+	gap:40px;
+}
+
+.contacts__header {
+	font:var(--content-font-bold);
+	font-size: 2rem;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
+.contacts__phones,
+.contacts__staff {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	line-height: 4rem;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
+.tel {}
+
+.mail-link {
+	font-weight: 700;
+}
+.section__map {
+	flex: 1 1 696px;
+	max-width: 696px;
+	max-height: 414px;
+	object-fit: cover;
+}
