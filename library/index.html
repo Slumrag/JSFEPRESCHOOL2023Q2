@@ -50,9 +50,9 @@
 				<p class="about-text section__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
 				<div class="carousel">
 					<div class="carousel__items">
-						<img class="carousel__image" src="./assets/images/book_isle.png" alt="book isle">
-						<img class="carousel__image" src="./assets/images/busts.png" alt="busts">
-						<img class="carousel__image" src="./assets/images/bookshelves.png" alt="book shelves">
+						<img class="carousel__image" src="./assets/images/carusel/book_isle.png" alt="book isle">
+						<img class="carousel__image" src="./assets/images/carusel/busts.png" alt="busts">
+						<img class="carousel__image" src="./assets/images/carusel/bookshelves.png" alt="book shelves">
 					</div>
 					<div class="pagination">
 						<button class="pagination__button pagination__button_active"></button>
@@ -94,7 +94,7 @@
 						tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex
 						protagonist. Not for the faint of heart.</p>
 						<button class="card__button button" >Buy</button>
-						<img class="card__image" src="./assets/images/the_book_eaters_book.png" alt="the book eaters cover">
+						<img class="card__image" src="./assets/images/book_covers/winter/the_book_eaters_book.png" alt="the book eaters cover">
 					</div>
 					<div class="card">
 						<div class="card__logo">Staff Picks</div>
@@ -102,7 +102,7 @@
 						<p class="card__description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a
 						woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
 						<button class="card__button button" >Buy</button>
-						<img class="card__image" src="./assets/images/cackle_book.png" alt="Cackle cover">
+						<img class="card__image" src="./assets/images/book_covers/winter/cackle_book.png" alt="Cackle cover">
 					</div>
 					<div class="card">
 						<div class="card__logo">Staff Picks</div>
@@ -111,7 +111,7 @@
 						for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an
 						inspired introduction to Dante's main themes.</p>
 						<button class="card__button button" >Buy</button>
-						<img class="card__image" src="./assets/images/dante_book.png" alt="Dante cover">
+						<img class="card__image" src="./assets/images/book_covers/winter/dante_book.png" alt="Dante cover">
 					</div>
 					<div class="card">
 						<div class="card__logo">Staff Picks</div>
@@ -119,8 +119,17 @@
 						<p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and
 						thrived as the modern world has changed around them.</p>
 						<button class="card__button button" disabled>Own</button>
-						<img class="card__image" src="./assets/images/the_last_queen_book.png" alt="The last queen cover">
+						<img class="card__image" src="./assets/images/book_covers/winter/the_last_queen_book.png" alt="The last queen cover">
 					</div>
+					<template id="card-template">
+						<div class="card">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">{title}</span>&NewLine;By {author}</h4>
+							<p class="card__description">{description}</p>
+							<button class="card__button button">Buy</button>
+							<img class="card__image" src="./assets/images/cover.png" alt="The last queen cover">
+						</div>
+					</template>
 				</div>
 			</div>
 		</section>
@@ -268,7 +277,6 @@
 						</a>
 					</div>
 				</address>
-
 				<div class="footer__section">
 					<p class="work-schedule">Mon - Fri&NewLine;08:00 am - 07:00 pm</p>
 					<p class="work-schedule">Sat - Sun&NewLine;10:00 am - 06:00 pm</p>

@@ -69,6 +69,9 @@
 
 .year {}
 
-.course-link {}
+.course-link {
+	flex: 1;
+	text-align: center;
+}
 
 .user-profile {}
