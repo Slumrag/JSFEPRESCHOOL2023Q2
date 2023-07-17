@@ -19,6 +19,8 @@ body {
 
 ol,
 ul,
+dl,
+menu,
 li {
 	margin: 0;
 	padding: 0;
