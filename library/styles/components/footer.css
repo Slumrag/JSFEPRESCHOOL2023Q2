@@ -67,11 +67,7 @@
 	letter-spacing: 2px;
 }
 
-.year {}
-
 .course-link {
-	flex: 1;
+	/* flex: 1; */
 	text-align: center;
 }
-
-.user-profile {}

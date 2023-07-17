@@ -60,7 +60,7 @@
 	font-weight: bold;
 	font-size: 1rem;
 	letter-spacing: 1px;
-	transition: 120ms ease-in-out;
+	transition: var(--transition-120);
 }
 .button:hover,
 .button_hover{
@@ -94,13 +94,23 @@
 .text-input::placeholder{
 	color: var(--color-disabled);
 }
+.text-input:focus{
+	outline-color: var(--color-active);
+}
+.text-input:invalid {
+	outline-color: red;
+	outline-width: 5px;
+	color: var(--color-disabled);
+}
+
 .link {
 	position: relative;
 	text-shadow: 0 0 0px transparent;
-	transition: 120ms ease-in-out;
+	transition: var(--transition-120);
 }
+.link_active,
 .link:active {
-	text-shadow: 0 0 1em var(--text-color-light);
+	text-shadow: 0 0px 0.5em var(--text-color-light);
 }
 .link::after {
 	content:"";
@@ -110,9 +120,30 @@
 	height: 2px;
 	width: 100%;
 	background-color: var(--text-color-light);
-	transition: 120ms ease-in-out;
+	transition: var(--transition-120);
 	scale: 0 1;
 }
+.link_hover::after,
 .link:hover::after {
 	scale: 1;
+}
+
+.icon-link {
+	background: transparent;
+	transition: var(--transition-120);
+}
+
+.icon-link>img {
+	filter: none;
+	transition: var(--transition-120);
+}
+
+.icon-link_active>img,
+.icon-link:active>img {
+	filter: drop-shadow(0px 0px 0.5em var(--text-color-light));
+}
+
+.icon-link_hover,
+.icon-link:hover {
+	scale: 1.1;
 }

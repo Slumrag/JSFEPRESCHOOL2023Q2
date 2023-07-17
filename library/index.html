@@ -25,23 +25,23 @@
 <body>
 	<header class="header-container full-bleed">
 		<div class="header__content _wrapper">
-			<h1 class="title"><a id="main-link" href="#">Brooklyn Public Library</a></h1>
+			<h1 class="title"><a class="link" id="main-link" href="./index.html">Brooklyn Public Library</a></h1>
 			<nav class="navmenu">
-				<menu class="navmenu__links">
+				<ul class="navmenu__links">
 					<li><a href="#about" class="navmenu__link link">About</a></li>
 					<li><a href="#favorites" class="navmenu__link link">Favorites</a></li>
 					<li><a href="#coffee-shop" class="navmenu__link link">Coffee shop</a></li>
 					<li><a href="#contacts" class="navmenu__link link">Contacts</a></li>
 					<li><a href="#library-card" class="navmenu__link link">Library Card</a></li>
-				</menu>
+				</ul>
 			</nav>
-			<a class="profile-icon" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
+			<a class="profile-icon icon-link" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
 		</div>
 	</header>
 	<main>
 		<section class="sc-welcome full-bleed">
 			<div class="_wrapper">
-				<h2 class="greeting">Welcome &NewLine;to the Brooklyn&NewLine;Library</h2>
+				<h3 class="greeting">Welcome &NewLine;to the Brooklyn&NewLine;Library</h3>
 			</div>
 		</section>
 		<section class="_wrapper" id="about">
@@ -57,7 +57,7 @@
 					<div class="pagination">
 						<button class="pagination__button pagination__button_active"></button>
 						<button class="pagination__button"></button>
-						<button class="pagination__button "></button>
+						<button class="pagination__button"></button>
 					</div>
 				</div>
 			</div>
@@ -67,24 +67,24 @@
 				<h2 class="section__title">Favorites</h2>
 				<div class="picker">
 					<h3 class="picker__title">Pick favorites of season</h3>
-					<div class="picker__options options">
-						<label class="options__label" for="winter">
+					<fieldset class="options">
+						<div class="options__item">
 							<input checked class="options__radio" name="seasons" id="winter" type="radio" value="winter">
-							Winter
-						</label>
-						<label class="options__label" for="spring">
-							spring
+							<label class="options__label" for="winter" data-text="Winter">winter</label>
+						</div>
+						<div class="options__item">
 							<input class="options__radio" name="seasons" id="spring" type="radio" value="spring">
-						</label>
-						<label class="options__label" for="summer">
-							summer
+							<label class="options__label" for="spring" data-text="Spring">spring</label>
+						</div>
+						<div class="options__item">
 							<input class="options__radio" name="seasons" id="summer" type="radio" value="summer">
-						</label>
-						<label class="options__label" for="autumn">
-							autumn
+							<label class="options__label" for="summer" data-text="Summer">summer</label>
+						</div>
+						<div class="options__item">
 							<input class="options__radio" name="seasons" id="autumn" type="radio" value="autumn">
-						</label>
-					</div>
+							<label class="options__label" for="autumn" data-text="Autumn">autumn</label>
+						</div>
+					</fieldset>
 				</div>
 				<div class="cards">
 					<div class="card">
@@ -242,8 +242,22 @@
 						<form class="find-card__form" action="/" id="card-form">
 							<div class="card-inputs">
 								<label class="card-inputs__label" for="">Brooklyn Public Library</label>
-								<input class="card-inputs__text text-input" type="text" name="card-data" id="reader-name" placeholder="Reader's name">
-								<input class="card-inputs__text text-input" type="text" name="card-data" id="card-num" placeholder="Card number" inputmode="numeric">
+								<input
+									class="card-inputs__text text-input"
+									type="text"
+									name="card-data"
+									id="reader-name"
+									placeholder="Reader's name"
+									pattern="[a-zA-Z]+"
+									>
+								<input
+									class="card-inputs__text text-input"
+									type="text"
+									name="card-data"
+									id="card-num"
+									placeholder="Card number"
+									inputmode="numeric"
+									pattern="[0-9-]+">
 							</div>
 							<input class="button submit-button" type="submit" value="Check the card">
 						</form>
@@ -264,18 +278,24 @@
 		<div class="footer-content _wrapper">
 			<div class="footer__top">
 				<address class="footer__section">
-					<p class="address">286 Cadman Plaza, New York,&NewLine;NY 11238, United States</p>
-					<div class="social-media">
-						<a class="social-media__link" href="https://twitter.com/?lang=ru">
-							<img class="social-media__icon" src="./assets/icons/u_twitter-alt.svg" alt="twitter icon">
-						</a>
-						<a class="social-media__link" href="https://www.instagram.com/">
-							<img class="social-media__icon" src="./assets/icons/u_instagram.svg" alt="instagram icon">
-						</a>
-						<a class="social-media__link" href="https://ru-ru.facebook.com/">
-							<img class="social-media__icon" src="./assets/icons/u_facebook-f.svg" alt="facebook icon">
-						</a>
-					</div>
+					<a class="address link" href="https://goo.gl/maps/eNK2HeuAZfJJ81ad9">286 Cadman Plaza, New York,&NewLine;NY 11238, United States</a>
+					<ul class="social-media">
+						<li>
+							<a class="social-media__link icon-link .icon-link_active" href="https://twitter.com/?lang=ru">
+								<img class="social-media__icon" src="./assets/icons/u_twitter-alt.svg" alt="twitter icon">
+							</a>
+						</li>
+						<li>
+							<a class="social-media__link icon-link" href="https://www.instagram.com/">
+								<img class="social-media__icon" src="./assets/icons/u_instagram.svg" alt="instagram icon">
+							</a>
+						</li>
+						<li>
+							<a class="social-media__link icon-link" href="https://ru-ru.facebook.com/">
+								<img class="social-media__icon" src="./assets/icons/u_facebook-f.svg" alt="facebook icon">
+							</a>
+						</li>
+					</ul>
 				</address>
 				<div class="footer__section">
 					<p class="work-schedule">Mon - Fri&NewLine;08:00 am - 07:00 pm</p>

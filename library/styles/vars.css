@@ -9,4 +9,6 @@
 	--bg-color: #0C0C0E;
 	--color-active: #BB945F;
 	--color-disabled: #8E8E8E;
+	/* animation */
+	--transition-120: 120ms ease-in-out;
 }

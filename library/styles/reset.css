@@ -50,7 +50,8 @@ p {
 }
 
 button,
-input {
+input,
+fieldset {
 	margin: 0;
 	padding: 0;
 	border: none;

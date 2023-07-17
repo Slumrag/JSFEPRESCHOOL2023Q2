@@ -23,8 +23,8 @@
 
 #main-link {
 	color: var(--text-color-light);
+	transition: var(--transition-120);
 }
-
 .navmenu {
 	display: flex;
 }
@@ -40,12 +40,10 @@
 	color: var(--text-color-light);
 }
 
-.navmenu__link:hover {
-	/* text-decoration: underline; */
-}
-
 .profile-icon {
 	margin-left: 40px;
+	border-radius: 50%;
 	height: 28px;
 	width: 28px;
+
 }
