@@ -66,3 +66,6 @@ input[type=radio] {
 	background-color: transparent;
 	font: inherit;
 }
+address {
+	font-style: normal;
+}

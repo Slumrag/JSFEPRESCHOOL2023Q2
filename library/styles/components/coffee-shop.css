@@ -1,4 +1,7 @@
-
+.coffee-shop__text {
+	text-align: center;
+	font-size: 2rem;
+}
 .menu {
 	display: flex;
 	align-self: stretch;
