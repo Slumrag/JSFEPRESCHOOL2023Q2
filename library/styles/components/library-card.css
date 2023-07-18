@@ -20,7 +20,8 @@
 
 .find-card__form {
 	padding: 20px 20px 30px;
-	border: 3px solid var(--color-active);
+	outline: 3px solid var(--color-active);
+	outline-offset: -3px;
 	width: 600px;
 	height: 386px;
 	display: flex;
@@ -31,6 +32,7 @@
 
 .card-inputs {
 	padding: 20px 20px 25px;
+	max-width: 560px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -43,7 +45,11 @@
 	line-height: 5rem;
 	letter-spacing: 0.6px;
 }
-
+.card-inputs__text {
+	border-radius: 10px;
+	line-height: 5rem;
+	letter-spacing: 0.6px;
+}
 .card-inputs__text:nth-child(2) {
 	margin-bottom: 5px;
 }
