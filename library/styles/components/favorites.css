@@ -91,11 +91,11 @@
 .cards {
 	align-self: stretch;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, max-content);
 	grid-template-rows: repeat(2,1fr);
 	grid-auto-rows: 1fr;
 	gap: 40px 0;
-
+	justify-content: space-between;
 }
 
 .card {
@@ -110,9 +110,6 @@
 	flex-direction: column;
 
 }
-.card:nth-child(2n){
-	justify-self: end;
-}
 
 .card__logo {
 	font: var(--header-font);
@@ -125,8 +122,10 @@
 	height: 1px;
 	width: 60px;
 	display: block;
+	margin-top: -1px;
 	background: var(--color-active);
 }
+
 .card__title {
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -142,11 +141,11 @@
 }
 
 .card__description {
-	width: 355px;
+	width: 358px;
 	font-size: 1.5rem;
 	line-height: 4rem;
 	letter-spacing: 2px;
-	word-wrap: break-word;
+	text-transform: capitalize;
 }
 
 .card__button {
