@@ -7,7 +7,7 @@
 .contacts {
 	display: flex;
 	flex-direction: column;
-	gap:40px;
+	gap: 40px;
 }
 
 .contacts__header {
@@ -26,8 +26,6 @@
 	letter-spacing: 2px;
 	text-transform: capitalize;
 }
-
-.tel {}
 
 .mail-link {
 	font-weight: 700;

@@ -87,9 +87,6 @@
 .options__radio:checked::before {
 	transform: scale(1);
 }
-.options__radio::before {
-	/* transform: scale(1); */
-}
 
 .cards {
 	align-self: stretch;
@@ -145,7 +142,6 @@
 }
 
 .card__description {
-	/* margin-bottom: 15px; */
 	width: 355px;
 	font-size: 1.5rem;
 	line-height: 4rem;

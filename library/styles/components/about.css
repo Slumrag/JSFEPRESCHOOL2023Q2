@@ -33,14 +33,9 @@
 }
 
 .pagination__button {
-	/* width: 16px;
-	height: 16px; */
-	/* border: 5px solid transparent; */
 	width: 26px;
 	height: 26px;
 	background: transparent;
-	/* box-shadow: inset 0 0 0 10px var(--bg-color); */
-	/* background: var(--bg-color); */
 	border-radius: 50%;
 }
 .pagination__button::after{
