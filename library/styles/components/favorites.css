@@ -21,8 +21,6 @@
 	line-height: 2.4rem;
 }
 .options__item {
-	padding: 5px;
-	margin: -5px;
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 	align-items: center;
@@ -30,11 +28,13 @@
 	text-transform: capitalize;
 }
 .options__item:last-child {
-	margin-left: -10px;
+	margin-left: -4px;
 }
 
 /* keep label width of bold text */
 .options__label {
+	margin: -5px;
+	border: 5px solid transparent;
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;
@@ -51,19 +51,31 @@
 	font-weight: bold;
 }
 
-.options__radio {
+.options__radio[type=radio] {
+	margin: -5px;
+	border-radius: 50%;
+	width: 27px;
+	height: 27px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translateY(2px);
+}
+/* outer circle */
+.options__radio::after {
+	position: absolute;
+	top: auto;
+	right: auto;
+	content:"";
 	width: 17px;
 	height: 17px;
 
 	border: 2px solid var(--text-color-dark);
 	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: translateY(0.1rem);
-	transition: var(--transition-120);
-}
 
+	transition: var(--transition-120) border;
+}
+/* inner circle */
 .options__radio::before {
 	content: "";
 	display: block;
@@ -77,7 +89,7 @@
 .options__item:hover *{
 	cursor: pointer;
 }
-.options__item:hover .options__radio:not(:checked) {
+.options__radio:hover:not(:checked)::after{
 	border-width: 6px;
 	border-style: double;
 }
