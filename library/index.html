@@ -231,36 +231,72 @@
 			<div class="section-content">
 				<h2 class="section__title">Digital Library Cards</h2>
 				<div class="forms-wrapper">
-					<div class="find-card">
+					<div class="find-card" data-login="false">
 						<h4 class="find-card__title">Find your Library card</h4>
-						<form class="find-card__form" action="/" id="card-form">
-							<div class="card-inputs">
-								<label class="card-inputs__label" for="reader-name">Brooklyn Public Library</label>
+						<form class="card-form" action="/" id="card-form">
+							<div class="card-form__inputs">
+								<p class="card-form__label">Brooklyn Public Library</p>
 								<input
-									class="card-inputs__text text-input"
+									class="card-form__input text-input"
 									type="text"
 									name="card-data"
 									id="reader-name"
 									placeholder="Reader's name"
-									pattern="[a-zA-Z]+"
+									pattern="[a-zA-Z ]+"
 									>
 								<input
-									class="card-inputs__text text-input"
+									class="card-form__input text-input"
 									type="text"
 									name="card-data"
 									id="card-num"
 									placeholder="Card number"
-									pattern="[0-9-]+">
+									pattern="[0-9\-]+">
 							</div>
-							<input class="button submit-button" type="submit" value="Check the card">
+							<input class="button card-form__submit" type="submit" value="Check the card">
 						</form>
 					</div>
-					<div class="get-card">
+					<div class="find-card" data-login="true">
+						<h4 class="find-card__title">Your Library card</h4>
+						<form class="card-form" action="/" id="card-form">
+							<div class="card-form__inputs">
+								<label class="card-form__label" for="reader-name">Brooklyn Public Library</label>
+								<input class="card-forms__input text-input" type="text" name="card-data" id="reader-name"
+									placeholder="Reader's name" pattern="[a-zA-Z ]+" value="John Doe">
+								<input class="card-form__input text-input" type="text" name="card-data" id="card-num"
+									placeholder="Card number" pattern="[0-9\-]+" value="F00234030">
+							</div>
+							<div class="card-profile">
+								<div class="card-profile__item">
+									<span class="card-profile__title">Visits</span>
+									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon" >
+									<span class="card-profile__count">23</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Bonuses</span>
+									<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon" >
+									<span class="card-profile__count">1240</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Books</span>
+									<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon" >
+									<span class="card-profile__count">2</span>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="get-card" data-login="false">
 						<h4 class="get-card__title">Get a reader card</h4>
 						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
 						<div class="get-card__buttons">
-							<a class="button sign-up" href="." target="_blank">Sign Up</a>
-							<a class="button log-in" href="." target="_blank">Log in</a>
+							<a class="button get-card__button" id="sign-in" href="." target="_blank">Sign Up</a>
+							<a class="button get-card__button" id="log-in" href="." target="_blank">Log in</a>
+						</div>
+					</div>
+					<div class="get-card" data-login="true">
+						<h4 class="get-card__title">Visit your profile</h4>
+						<p class="get-card__description">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+						<div class="get-card__buttons">
+							<a class="button get-card__button" id="profile" href="." target="_blank">Profile</a>
 						</div>
 					</div>
 				</div>

@@ -1,8 +1,12 @@
+div[data-login=true]{
+	display: none;
+}
 .forms-wrapper {
 	display: flex;
 	align-self: stretch;
 	justify-content: space-between;
 }
+
 
 .find-card {
 	display: flex;
@@ -17,9 +21,11 @@
 	line-height: normal;
 	letter-spacing: 0.6px;
 }
-
-.find-card__form {
-	padding: 20px 20px 30px;
+.find-card__title {
+	content: "txt";
+}
+.card-form {
+	padding: 20px 20px 0px;
 	outline: 3px solid var(--color-active);
 	outline-offset: -3px;
 	width: 600px;
@@ -30,7 +36,7 @@
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.card-inputs {
+.card-form__inputs {
 	padding: 20px 20px 25px;
 	max-width: 560px;
 	display: flex;
@@ -39,25 +45,42 @@
 	background: var(--color-active);
 }
 
-.card-inputs__label {
+.card-form__label {
 	font: var(--header-font);
 	font-size: 3rem;
 	line-height: 5rem;
 	letter-spacing: 0.6px;
 }
-.card-inputs__text {
-	border-radius: 10px;
+.card-form__input {
 	line-height: 5rem;
 	letter-spacing: 0.6px;
 }
-.card-inputs__text:nth-child(2) {
-	margin-bottom: 5px;
+.card-form__input:nth-child(3) {
+	margin-top: 5px;
 }
-.submit-button {
+.card-form__submit {
 	align-self: center;
 	font-size: 2rem;
 	padding-right: 40px;
 	padding-left: 40px;
+}
+
+.card-profile {
+	margin-top: -5px;
+	display: flex;
+	column-gap: 35px;
+	align-self: center;
+	text-align: center;
+	font-size: 1rem;
+	line-height: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.card-profile__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1px;
 }
 
 .get-card {
@@ -86,8 +109,7 @@
 	display: flex;
 	gap: 20px;
 }
-.sign-up,
-.log-in {
+.get-card__button {
 	width: 75px;
 	height: 30px;
 	text-transform: capitalize;
