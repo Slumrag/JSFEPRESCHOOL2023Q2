@@ -174,3 +174,9 @@
 	height: 300px;
 	object-fit: cover;
 }
+@media (max-width:1220px) {
+	.cards{
+		grid-template-columns: 1fr;
+		align-self: center;
+	}
+}

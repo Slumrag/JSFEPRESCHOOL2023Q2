@@ -10,7 +10,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 }
 
 .header__content>.title {
@@ -24,6 +23,12 @@
 #main-link {
 	color: var(--text-color-light);
 	transition: var(--transition-120);
+}
+.controles{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
 }
 .navmenu {
 	display: flex;
@@ -41,8 +46,81 @@
 }
 
 .profile-icon {
-	margin-left: 40px;
+	position: relative;
+	z-index: 2;
 	border-radius: 50%;
 	height: 28px;
 	width: 28px;
+}
+.burger-button{
+	display:none;
+	width: 45px;
+	height: 20px;
+	position: relative;
+	z-index: 2;
+	align-items: center;
+	transition: var(--transition-120);
+}
+.burger-button:hover{
+	cursor:pointer;
+	/* scale: 1.1; */
+}
+
+.burger-button>div,
+.burger-button>div::before,
+.burger-button>div::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: var(--text-color-light);
+	transition: 200ms ease;
+}
+
+.burger-button>div::before{
+	position: absolute;
+	top: 0;
+	/* background-color: red; */
+}
+.burger-button>div::after {
+	position: absolute;
+	bottom: 0;
+	/* background-color: blue; */
+}
+.burger-button_closed>div,
+.burger-button:active>div{
+	background-color: transparent;
+}
+.burger-button_closed>div::before,
+.burger-button:active>div::before{
+	top: calc(50% - 1px);
+	transform: rotate(45deg);
+}
+.burger-button_closed>div::after,
+.burger-button:active>div::after {
+	bottom: calc(50% - 1px);
+	transform: rotate(-45deg);
+}
+@media (max-width: 1024px) {
+	.navmenu {
+		height: 570px;
+		width: 332px;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--bg-color);
+		transform: translateX(100%);
+	}
+	.navmenu__links{
+		flex-direction: column;
+		line-height: 50px;
+	}
+	.burger-button{
+		display: flex;
+	}
+
 }

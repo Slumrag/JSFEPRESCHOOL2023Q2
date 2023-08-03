@@ -1,7 +1,7 @@
 ._wrapper {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1440px;
+	max-width: var(--desktop);
 }
 
 .full-bleed {

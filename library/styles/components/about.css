@@ -7,11 +7,24 @@
 
 .carousel {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 50px;
+}
+.carousel__content{
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
 }
-
+.carousel__arrow{
+	display: none;
+	cursor: pointer;
+	transition: var(--transition-120);
+}
+.carousel__arrow:hover{
+	scale:1.1;
+}
 .carousel__items {
 	display: flex;
 	align-items: center;
@@ -31,7 +44,10 @@
 	display: flex;
 	justify-content: space-between;
 }
-
+.pagination__button:nth-child(n + 4),
+.carousel__image:nth-child(n + 4) {
+	display: none;
+}
 .pagination__button {
 	width: 26px;
 	height: 26px;
@@ -61,4 +77,16 @@
 .pagination__button_hover::after,
 .pagination__button:hover::after {
 	scale: 1.1;
+}
+@media (max-width:1400px) {
+	.carousel__content {
+		gap: 25px;
+	}
+	.carousel__image:not(:nth-child(1)){
+		display: none;
+	}
+	.carousel__arrow,
+	.pagination__button:nth-child(n){
+		display: block;
+	}
 }
