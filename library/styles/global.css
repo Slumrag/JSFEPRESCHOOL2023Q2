@@ -62,15 +62,17 @@
 	letter-spacing: 1px;
 	transition: var(--transition-120);
 }
-.button:hover,
-.button_hover{
-	cursor: pointer;
-	scale: 1.1;
-
-}
 
 .button:active,
-.button_active {
+.button_active
+{
+	cursor: pointer;
+	scale: 1.1;
+}
+
+.button:hover,
+.button_hover
+{
 	cursor: pointer;
 	background-color: var(--color-active);
 	border-color:var(--color-active);
