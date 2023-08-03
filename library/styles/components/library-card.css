@@ -21,9 +21,7 @@ div[data-login=true]{
 	line-height: normal;
 	letter-spacing: 0.6px;
 }
-.find-card__title {
-	content: "txt";
-}
+
 .card-form {
 	padding: 20px 20px 0px;
 	outline: 3px solid var(--color-active);
