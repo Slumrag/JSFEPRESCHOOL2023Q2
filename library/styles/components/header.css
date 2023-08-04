@@ -40,8 +40,7 @@
 	z-index: 1;
 	top: 20px;
 	right:13px;
-
-
+	/* gap: 36px; */
 }
 .nav-menu {
 	display: flex;
@@ -70,22 +69,20 @@
 	width: 28px;
 }
 .burger-button{
+	/* padding: calc((32px - 20px) / 2) 0; */
 	display:none;
 	width: 45px;
-	height: 20px;
+	height: 32px;
 	position: relative;
 	z-index: 2;
 	align-items: center;
-
 }
 .burger-button:hover{
 	cursor:pointer;
 
 }
 
-.burger-button>div,
-.burger-button>div::before,
-.burger-button>div::after {
+.burger-button>div{
 	content: "";
 	display: block;
 	width: 100%;
@@ -94,38 +91,36 @@
 	transition: 200ms ease-in-out;
 }
 
-.burger-button>div::before{
+.burger-button>div:nth-child(1){
 	position: absolute;
-	top: 0;
+	top: 6px;
 
 }
-.burger-button>div::after {
+.burger-button>div:nth-child(3){
 	position: absolute;
-	bottom: 0;
-
+	bottom: 6px;
 }
-.burger-button_closed{
-
-}
-.burger-button_closed>div,
-.burger-button:active>div{
-	background-color: transparent;
-}
-.burger-button_closed>div::before,
-.burger-button:active>div::before{
+.burger-button_closed>div:nth-child(1),
+.burger-button:active>div:nth-child(1) {
 	top: calc(50% - 1px);
 	transform: rotate(45deg);
 }
-.burger-button_closed>div::after,
-.burger-button:active>div::after {
+
+.burger-button_closed>div:nth-child(2),
+.burger-button:active>div:nth-child(2){
+	transform: scaleX(0);
+}
+.burger-button_closed>div:nth-child(3),
+.burger-button:active>div:nth-child(3) {
 	bottom: calc(50% - 1px);
 	transform: rotate(-45deg);
 }
 
 @media (max-width: 1024px) {
 	.nav-menu {
+		/* outline: 1px solid yellow; */
 		position: fixed;
-		top: 0;
+		top: 10px;
 		right: -332px;
 		height: 570px;
 		width: 332px;
