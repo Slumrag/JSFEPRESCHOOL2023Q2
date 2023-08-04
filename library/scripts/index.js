@@ -15,20 +15,13 @@ window.addEventListener('resize', (e) => {
 });
 
 function burgerHandler(e) {
-	if (e.target.classList.contains('burger-button')) {
+	if (e.target.closest('.burger-button')) {
 		burgerMenu.dataset.isOpen =
 			burgerMenu.dataset.isOpen === 'true' ? 'false' : 'true';
 		burgerButton.classList.toggle('burger-button_closed');
 		controls.classList.toggle('controls_open');
 		burgerMenu.classList.toggle('nav-menu_open');
-		// burgerMenu.dataset.isOpen = !burgerMenu.dataset.isOpen;
-		console.log(
-			e.target,
-			burgerButton.classList,
-			burgerMenu.dataset.isOpen
-		);
-	}
-	if (!e.target.closest('.controls')) {
+	} else if (!e.target.closest('.controls')) {
 		burgerMenu.dataset.isOpen = 'false';
 		controls.classList.remove('controls_open');
 		burgerButton.classList.remove('burger-button_closed');
