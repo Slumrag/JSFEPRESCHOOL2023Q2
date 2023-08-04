@@ -84,13 +84,13 @@ div[data-login=true]{
 }
 
 .get-card {
-	max-width: 456px;
 	display: flex;
 	flex-direction: column;
 	justify-self: end;
 	gap: 35px;
 	text-align: end;
 	align-items: end;
+	flex: 1;
 }
 
 .get-card__title {
@@ -102,6 +102,7 @@ div[data-login=true]{
 .get-card__description {
 	line-height: 4rem;
 	letter-spacing: 0.4px;
+	max-width: 456px;
 }
 
 .get-card__buttons {
@@ -121,9 +122,11 @@ div[data-login=true]{
 		align-items: center;
 	}
 	.get-card{
-		flex-grow: 1;
 		gap: 40px;
 		text-align: center;
 		align-items: center;
+	}
+	.get-card__description{
+		max-width: 600px;
 	}
 }

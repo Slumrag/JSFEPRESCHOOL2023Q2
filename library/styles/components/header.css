@@ -20,11 +20,14 @@
 	letter-spacing: 0.6px;
 }
 
-#main-link {
+.home-link {
 	color: var(--text-color-light);
 	transition: var(--transition-120);
 }
-.controles{
+.home-link:hover {
+	text-shadow :0 0px 0.5em var(--text-color-light);
+}
+.controls{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
