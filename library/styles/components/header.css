@@ -10,7 +10,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 }
 
 .header__content>.title {
@@ -21,28 +20,122 @@
 	letter-spacing: 0.6px;
 }
 
-#main-link {
+.home-link {
 	color: var(--text-color-light);
 	transition: var(--transition-120);
 }
-.navmenu {
-	display: flex;
+.home-link:hover {
+	text-shadow :0 0px 0.5em var(--text-color-light);
 }
+.controls{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+	transition: var(--transition-120);
 
-.navmenu__links {
+}
+.controls_open{
+	position: fixed;
+	height: 50px;
+	z-index: 1;
+	top: 20px;
+	right:13px;
+	gap: 36px;
+}
+.nav-menu {
+	display: flex;
+	background: transparent;
+	transition: var(--transition-120);
+}
+.nav-menu_open {
+	transform: translateX(-332px);
+}
+.nav-menu__links {
 	display: flex;
 	align-items: center;
 	gap: 30px;
 }
 
-.navmenu__link {
+.nav-menu__link {
 	font: var(--content-font);
 	color: var(--text-color-light);
 }
 
 .profile-icon {
-	margin-left: 40px;
+	position: relative;
+	z-index: 2;
 	border-radius: 50%;
 	height: 28px;
 	width: 28px;
+}
+.burger-button{
+	display:none;
+	width: 45px;
+	height: 32px;
+	position: relative;
+	z-index: 2;
+	align-items: center;
+}
+.burger-button:hover{
+	cursor:pointer;
+
+}
+
+.burger-button>div{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: var(--text-color-light);
+	transition: 200ms ease-in-out;
+}
+
+.burger-button>div:nth-child(1){
+	position: absolute;
+	top: 6px;
+
+}
+.burger-button>div:nth-child(3){
+	position: absolute;
+	bottom: 6px;
+}
+.burger-button_closed>div:nth-child(1),
+.burger-button:active>div:nth-child(1) {
+	top: calc(50% - 1px);
+	transform: rotate(45deg);
+}
+
+.burger-button_closed>div:nth-child(2),
+.burger-button:active>div:nth-child(2){
+	transform: scaleX(0);
+}
+.burger-button_closed>div:nth-child(3),
+.burger-button:active>div:nth-child(3) {
+	bottom: calc(50% - 1px);
+	transform: rotate(-45deg);
+}
+
+@media (max-width: 1024px) {
+	.nav-menu {
+		position: fixed;
+		top: 10px;
+		right: -332px;
+		height: 570px;
+		width: 332px;
+		order:3;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--bg-color);
+	}
+	.nav-menu__links{
+		flex-direction: column;
+		line-height: 50px;
+	}
+	.burger-button{
+		display: flex;
+	}
+
 }

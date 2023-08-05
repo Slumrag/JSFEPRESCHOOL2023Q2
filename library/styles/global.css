@@ -1,7 +1,7 @@
 ._wrapper {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1440px;
+	max-width: var(--desktop);
 }
 
 .full-bleed {
@@ -62,15 +62,17 @@
 	letter-spacing: 1px;
 	transition: var(--transition-120);
 }
-.button:hover,
-.button_hover{
-	cursor: pointer;
-	scale: 1.1;
-
-}
 
 .button:active,
-.button_active {
+.button_active
+{
+	cursor: pointer;
+	scale: 1.1;
+}
+
+.button:hover,
+.button_hover
+{
 	cursor: pointer;
 	background-color: var(--color-active);
 	border-color:var(--color-active);
@@ -102,17 +104,19 @@
 	outline-width: 5px;
 	color: var(--color-disabled);
 }
-
-.link {
+.link:hover{
+	text-decoration: underline;
+}
+.nav-link {
 	position: relative;
 	text-shadow: 0 0 0px transparent;
 	transition: var(--transition-120);
 }
-.link_active,
-.link:active {
+.nav-link_active,
+.nav-link:active {
 	text-shadow: 0 0px 0.5em var(--text-color-light);
 }
-.link::after {
+.nav-link::after {
 	content:"";
 	position: absolute;
 	bottom: -0.5em;
@@ -123,8 +127,8 @@
 	transition: var(--transition-120);
 	scale: 0 1;
 }
-.link_hover::after,
-.link:hover::after {
+.nav-link_hover::after,
+.nav-link:hover::after {
 	scale: 1;
 }
 

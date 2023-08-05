@@ -6,6 +6,8 @@
 	display: flex;
 	align-self: stretch;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 40px;
 }
 
 .menu__section {
@@ -13,6 +15,10 @@
 	flex-direction: column;
 	justify-self: start;
 	gap: 40px;
+}
+.menu__section:nth-child(2) {
+	flex-grow: 1;
+	text-align: end;
 }
 
 .menu__title {
@@ -54,8 +60,4 @@
 	font-size: 2rem;
 	line-height: 4rem;
 	letter-spacing: 1px;
-}
-
-.menu__section.align-right {
-	text-align: end;
 }

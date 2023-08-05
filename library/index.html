@@ -25,17 +25,24 @@
 <body>
 	<header class="header-container full-bleed">
 		<div class="header__content _wrapper">
-			<h1 class="title"><a class="link" id="main-link" href="./index.html">Brooklyn Public Library</a></h1>
-			<nav class="navmenu">
-				<ul class="navmenu__links">
-					<li><a href="#about" class="navmenu__link link">About</a></li>
-					<li><a href="#favorites" class="navmenu__link link">Favorites</a></li>
-					<li><a href="#coffee-shop" class="navmenu__link link">Coffee shop</a></li>
-					<li><a href="#contacts" class="navmenu__link link">Contacts</a></li>
-					<li><a href="#library-card" class="navmenu__link link">Library Card</a></li>
-				</ul>
-			</nav>
-			<a class="profile-icon icon-link" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
+			<h1 class="title"><a class="home-link" href="./index.html">Brooklyn Public Library</a></h1>
+			<div class="controls" data-is-open="false">
+				<nav class="nav-menu">
+					<ul class="nav-menu__links">
+						<li><a href="#about" class="nav-menu__link nav-link">About</a></li>
+						<li><a href="#favorites" class="nav-menu__link nav-link">Favorites</a></li>
+						<li><a href="#coffee-shop" class="nav-menu__link nav-link">Coffee shop</a></li>
+						<li><a href="#contacts" class="nav-menu__link nav-link">Contacts</a></li>
+						<li><a href="#library-card" class="nav-menu__link nav-link">Library Card</a></li>
+					</ul>
+				</nav>
+				<a class="profile-icon icon-link" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
+				<div class="burger-button">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
 		</div>
 	</header>
 	<main>
@@ -49,16 +56,24 @@
 				<h2 class="section__title">About</h2>
 				<p class="about-text section__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
 				<div class="carousel">
-					<div class="carousel__items">
-						<img class="carousel__image" src="./assets/images/carusel/book_isle.png" alt="book isle">
-						<img class="carousel__image" src="./assets/images/carusel/busts.png" alt="busts">
-						<img class="carousel__image" src="./assets/images/carusel/bookshelves.png" alt="book shelves">
+					<button class="carousel__arrow" id="arrow-left"><img src="./assets/icons/arrow-left.svg" alt=""></button>
+					<div class="carousel__content">
+						<div class="carousel__items">
+							<img class="carousel__image" src="./assets/images/carusel/book_isle.png" alt="book isle">
+							<img class="carousel__image" src="./assets/images/carusel/busts.png" alt="busts">
+							<img class="carousel__image" src="./assets/images/carusel/bookshelves.png" alt="book shelves">
+							<img class="carousel__image" src="./assets/images/carusel/bookshelves-2.png" alt="book shelves 2">
+							<img class="carousel__image" src="./assets/images/carusel/pillars.png" alt="pillars">
+						</div>
+						<div class="pagination">
+							<button class="pagination__button pagination__button_active"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+						</div>
 					</div>
-					<div class="pagination">
-						<button class="pagination__button pagination__button_active"></button>
-						<button class="pagination__button"></button>
-						<button class="pagination__button"></button>
-					</div>
+					<button class="carousel__arrow" id="arrow-right"><img src="./assets/icons/arrow-right.svg" alt=""></button>
 				</div>
 			</div>
 		</section>
@@ -214,13 +229,13 @@
 					<div class="contacts">
 						<h5 class="contacts__header">For all Library inquiries:</h5>
 						<address class="contacts__phones">
-							<p>Please call <a class="tel" href="tel:(617)730-2370">(617) 730-2370</a></p>
-							<p>For TTY service, please call <a class="tel" href="tel:(617)730-2370">(617) 730-2370</a></p>
-							<p>Putterham Library: <a class="tel" href="tel:(617)730-2385">(617) 730-2385</a></p>
+							<p>Please call <a class="tel link" href="tel:(617)730-2370">(617) 730-2370</a></p>
+							<p>For TTY service, please call <a class="tel link" href="tel:(617)730-2370">(617) 730-2370</a></p>
+							<p>Putterham Library: <a class="tel link" href="tel:(617)730-2385">(617) 730-2385</a></p>
 						</address>
 						<div class="contacts__staff">
 							<h5 class="contacts__header">Senior Staff</h5>
-							<p>Library Director: <a class="mail-link" href="mailto:amandahirst@gmail.com">Amanda Hirst</a></p>
+							<p>Library Director: <a class="mail-link link" href="mailto:amandahirst@gmail.com">Amanda Hirst</a></p>
 						</div>
 					</div>
 					<img src="./assets/images/map.png" alt="map" class="section__map">

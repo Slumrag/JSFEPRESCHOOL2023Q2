@@ -1,8 +1,8 @@
 .picker {
 	display: flex;
 	flex-direction: column;
-	align-self: start;
-	gap: 40px 0;
+	align-self: stretch;
+	gap: 40px 0px;
 
 }
 
@@ -13,11 +13,12 @@
 }
 
 .options {
-	max-width: 700px;
+	max-width: 704px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 0 90px;
+	gap: 20px 20px;
+	flex-wrap: wrap;
 	line-height: 2.4rem;
 }
 .options__item {
@@ -26,9 +27,6 @@
 	align-items: center;
 	gap: 20px;
 	text-transform: capitalize;
-}
-.options__item:last-child {
-	margin-left: -4px;
 }
 
 /* keep label width of bold text */
@@ -173,4 +171,10 @@
 	width: 200px;
 	height: 300px;
 	object-fit: cover;
+}
+@media (max-width:1220px) {
+	.cards{
+		grid-template-columns: 1fr;
+		align-self: center;
+	}
 }

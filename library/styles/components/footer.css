@@ -63,6 +63,8 @@
 	flex: 1;
 	display: grid;
 	grid-template-columns: 1fr max-content 1fr;
+	grid-template-rows: 1fr;
+	gap: 20px;
 	justify-content: space-between;
 	align-items: center;
 	line-height: 2rem;
@@ -76,4 +78,10 @@
 }
 .user-profile {
 	justify-self: end;
+	text-align: end;
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 100%;
+	line-height: 1.2em;
 }
