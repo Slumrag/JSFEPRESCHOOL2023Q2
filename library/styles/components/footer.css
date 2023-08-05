@@ -85,9 +85,3 @@
 	width: 100%;
 	line-height: 1.2em;
 }
-@media (max-width:1024px) {
-	.footer__bottom{
-		/* display: flex;
-		justify-content: space-between; */
-	}
-}

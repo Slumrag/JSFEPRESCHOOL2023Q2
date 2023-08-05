@@ -6,7 +6,6 @@ document.addEventListener('click', burgerHandler);
 
 window.addEventListener('resize', (e) => {
 	if (window.innerWidth >= BURGER_TOGGLE_WIDTH) {
-		console.log(e.detail);
 		burgerMenu.dataset.isOpen = 'false';
 		burgerButton.classList.remove('burger-button_closed');
 		controls.classList.remove('controls_open');
@@ -32,7 +31,7 @@ function burgerHandler(e) {
 const EVALUATION_MESSAGE = `Оценка работы: 50
 1. Вёрстка соответствует макету. Ширина экрана 768px +26
 2. Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12
-На ширине экрана 768рх реализовано адаптивное меню +12
+3. На ширине экрана 768рх реализовано адаптивное меню +12
 `;
 const DEPLOY_LINK =
 	'https://rolling-scopes-school.github.io/slumrag-JSFEPRESCHOOL2023Q2/library/';
