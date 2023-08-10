@@ -40,8 +40,7 @@
 	height: 50px;
 	z-index: 1;
 	top: 20px;
-	right:13px;
-	gap: 36px;
+	right:20px;
 }
 .nav-menu {
 	display: flex;
@@ -119,7 +118,7 @@
 @media (max-width: 1024px) {
 	.nav-menu {
 		position: fixed;
-		top: 10px;
+		top: 0px;
 		right: -332px;
 		height: 570px;
 		width: 332px;
