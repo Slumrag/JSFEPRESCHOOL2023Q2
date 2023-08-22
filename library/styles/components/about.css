@@ -21,9 +21,18 @@
 	display: none;
 	width: 24px;
 	height: 24px;
-	padding: 5px;
+	/* padding: 5px; */
 	cursor: pointer;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:  6px 10px;
 	transition: var(--transition-120);
+}
+#arrow-right {
+	background-image: url(../../assets/icons/arrow-right.svg);
+}
+#arrow-left {
+	background-image: url(../../assets/icons/arrow-left.svg);
 }
 .carousel__arrow img {
 	width: 100%;
