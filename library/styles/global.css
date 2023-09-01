@@ -3,10 +3,7 @@
 	margin-right: auto;
 	max-width: var(--desktop);
 }
-.hidden {
-	opacity: 0 !important;
-	z-index: -1;
-}
+
 .full-bleed {
 	width: 100vw;
 	position: relative;

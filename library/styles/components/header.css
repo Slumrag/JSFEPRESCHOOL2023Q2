@@ -60,13 +60,65 @@
 	font: var(--content-font);
 	color: var(--text-color-light);
 }
-
-.profile-icon {
+.auth-menu{
 	position: relative;
 	z-index: 2;
+}
+.auth-menu__profile {
+	position: relative;
 	border-radius: 50%;
 	height: 28px;
 	width: 28px;
+}
+.auth-menu__menu{
+	/* left: calc(50% - 80px / 2); */
+	padding: 5px;
+	top: calc(100% + 28px);
+	right: 0;
+	width: 80px;
+	height: 115px;
+	position: absolute;
+	z-index: 2;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 10px;
+	background: var(--text-color-light);
+
+	font-size: 1.5rem;
+	line-height: 2rem;
+	transition: transform 120ms ease-in-out;
+	transform: scaleY(1);
+}
+.auth-menu__menu.hidden{
+	transform: scaleY(0);
+}
+.auth-menu__title{
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	font-weight: 700;
+}
+.auth-menu__title::after{
+	/* margin-top: -1px; */
+	width: 40px;
+	height: 1px;
+	display: block;
+	content: "";
+	background: var(--color-active);
+}
+.auth-menu__button{
+
+}
+.auth-menu__button:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+.auth-menu__button:active{
+	scale:1.1;
 }
 .burger-button{
 	display:none;
@@ -78,9 +130,7 @@
 }
 .burger-button:hover{
 	cursor:pointer;
-
 }
-
 .burger-button>div{
 	content: "";
 	display: block;

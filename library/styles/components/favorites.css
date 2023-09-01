@@ -121,7 +121,10 @@
 	opacity: 1;
 	transition: opacity 250ms ease-in-out;
 }
-
+.card-set.hidden {
+	opacity: 0 !important;
+	z-index: -1;
+}
 .card {
 	padding: 15px 0 15px 20px;
 	margin-right: 40px;

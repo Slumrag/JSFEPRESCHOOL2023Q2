@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 	<link rel="stylesheet" href="./styles/styles.css">
 	<!-- scripts -->
+	<script src="./scripts/authMenu.js" defer ></script>
 	<script src="./scripts/burgerHandler.js" defer></script>
 	<script src="./scripts/carusel.js" defer></script>
 	<script src="./scripts/slider.js" defer></script>
@@ -39,7 +40,14 @@
 						<li><a href="#library-card" class="nav-menu__link nav-link">Library Card</a></li>
 					</ul>
 				</nav>
-				<a class="profile-icon icon-link" href="#"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></a>
+				<div class="auth-menu">
+					<button class="auth-menu__profile icon-link"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></button>
+					<div class="auth-menu__menu hidden">
+						<p class="auth-menu__title">Profile</p>
+						<button class="auth-menu__button" value="log-in">Log in</button>
+						<button class="auth-menu__button" value="register">Register</button>
+					</div>
+				</div>
 				<div class="burger-button">
 					<div></div>
 					<div></div>
