@@ -69,3 +69,8 @@ input[type=radio] {
 address {
 	font-style: normal;
 }
+dialog{
+	padding: 0;
+	background: none;
+	border:none;
+}

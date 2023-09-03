@@ -14,3 +14,5 @@
 @import url(./components/library-card.css);
 /* footer */
 @import url(./components/footer.css);
+/* modals */
+@import url(./components/modals/register.css);

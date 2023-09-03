@@ -20,6 +20,8 @@
 	<link rel="stylesheet" href="./styles/styles.css">
 	<!-- scripts -->
 	<script src="./scripts/authMenu.js" defer ></script>
+	<script src="./scripts/registerModal.js" defer></script>
+	<script src="./scripts/libraryCard.js" defer></script>
 	<script src="./scripts/burgerHandler.js" defer></script>
 	<script src="./scripts/carusel.js" defer></script>
 	<script src="./scripts/slider.js" defer></script>
@@ -368,7 +370,7 @@
 									class="card-form__input text-input"
 									type="text"
 									name="card-data"
-									id="reader-name"
+									id="readersName"
 									placeholder="Reader's name"
 									pattern="[a-zA-Z ]+"
 									>
@@ -376,14 +378,31 @@
 									class="card-form__input text-input"
 									type="text"
 									name="card-data"
-									id="card-num"
+									id="cardNumber"
 									placeholder="Card number"
-									pattern="[0-9\-]+">
+									pattern="[a-zA-Z0-9]+">
 							</div>
-							<input class="button card-form__submit" type="button" value="Check the card">
+							<button class="button card-form__submit" type="submit" value="checkCard">Check the card</button>
+							<div class="card-profile">
+								<div class="card-profile__item">
+									<span class="card-profile__title">Visits</span>
+									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon">
+									<span class="card-profile__count" data-profile="visits">23</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Bonuses</span>
+									<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon">
+									<span class="card-profile__count" data-profile="bounces">1240</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Books</span>
+									<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon">
+									<span class="card-profile__count" data-profile="books">2</span>
+								</div>
+							</div>
 						</form>
 					</div>
-					<div class="find-card" data-login="true">
+					<!-- <div class="find-card" data-login="true">
 						<h4 class="find-card__title">Your Library card</h4>
 						<form class="card-form" action="/" id="card-form">
 							<div class="card-form__inputs">
@@ -391,40 +410,40 @@
 								<input class="card-forms__input text-input" type="text" name="card-data" id="reader-name"
 									placeholder="Reader's name" pattern="[a-zA-Z ]+" value="John Doe">
 								<input class="card-form__input text-input" type="text" name="card-data" id="card-num"
-									placeholder="Card number" pattern="[0-9\-]+" value="F00234030">
+									placeholder="Card number" pattern="[a-zA-Z0-9]+" value="F00234030">
 							</div>
 							<div class="card-profile">
 								<div class="card-profile__item">
 									<span class="card-profile__title">Visits</span>
 									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon" >
-									<span class="card-profile__count">23</span>
+									<span class="card-profile__count" data-profile="visits">23</span>
 								</div>
 								<div class="card-profile__item">
 									<span class="card-profile__title">Bonuses</span>
 									<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon" >
-									<span class="card-profile__count">1240</span>
+									<span class="card-profile__count" data-profile="bounces">1240</span>
 								</div>
 								<div class="card-profile__item">
 									<span class="card-profile__title">Books</span>
 									<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon" >
-									<span class="card-profile__count">2</span>
+									<span class="card-profile__count" data-profile="books">2</span>
 								</div>
 							</div>
 						</form>
-					</div>
+					</div> -->
 					<div class="get-card" data-login="false">
 						<h4 class="get-card__title">Get a reader card</h4>
 						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
 						<div class="get-card__buttons">
-							<a class="button get-card__button" id="sign-in" href="javascript:void(0)">Sign Up</a>
-							<a class="button get-card__button" id="log-in" href="javascript:void(0)">Log in</a>
+							<button class="button get-card__button" value="register">Sign Up</button>
+							<button class="button get-card__button" value="log-in">Log in</button>
 						</div>
 					</div>
 					<div class="get-card" data-login="true">
 						<h4 class="get-card__title">Visit your profile</h4>
 						<p class="get-card__description">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
 						<div class="get-card__buttons">
-							<a class="button get-card__button" id="profile" href=".">Profile</a>
+							<button class="button get-card__button" id="profile">Profile</button>
 						</div>
 					</div>
 				</div>
@@ -467,6 +486,37 @@
 			</div>
 		</div>
 	</footer>
-
+	<dialog class="modal" id="register-modal">
+		<div class="modal__content">
+			<button class="modal__close"><div></div>
+			<div></div></button>
+			<h2 class="modal__title">register</h2>
+			<form action="" class="register-form">
+				<fieldset class="register-form__fields">
+					<div class="register-form__text-field">
+						<label for="first-name" class="text-label">First name</label>
+						<input required class="register-form__text-input text-input" type="text" id="firstName" pattern="\w+" title="input must contain more then one character">
+					</div>
+					<div class="register-form__text-field">
+						<label for="last-name" class="text-label">Last name</label>
+						<input required class="register-form__text-input text-input" type="text" id="lastName" pattern="\w+" title="input must contain more then one character">
+					</div>
+					<div class="register-form__text-field">
+						<label for="email" class="text-label">E-mail</label>
+						<input required class="register-form__text-input text-input" type="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="input must be a valid e-mail address">
+					</div>
+					<div class="register-form__text-field">
+						<label for="password" class="text-label">Password</label>
+						<input required class="register-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
+					</div>
+				</fieldset>
+				<button class="register-form__sign-up button" type="submit" value="sign-up">Sign Up</button>
+			</form>
+			<div class="annotation">
+				<p class="annotation__text">Already have an account?</p>
+				<button class="annotation__login">Login</button>
+			</div>
+		</div>
+	</dialog>
 </body>
 </html>

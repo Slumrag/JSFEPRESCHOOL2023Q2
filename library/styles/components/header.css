@@ -69,6 +69,15 @@
 	border-radius: 50%;
 	height: 28px;
 	width: 28px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color:var(--color-active);
+	font-size: 1.5rem;
+	font-style: normal;
+	line-height: 2rem;
 }
 .auth-menu__menu{
 	/* left: calc(50% - 80px / 2); */
@@ -110,9 +119,8 @@
 	content: "";
 	background: var(--color-active);
 }
-.auth-menu__button{
 
-}
+
 .auth-menu__button:hover{
 	cursor: pointer;
 	text-decoration: underline;
