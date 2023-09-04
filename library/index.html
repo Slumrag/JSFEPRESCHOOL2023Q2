@@ -19,12 +19,16 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 	<link rel="stylesheet" href="./styles/styles.css">
 	<!-- scripts -->
-	<script src="./scripts/authMenu.js" defer ></script>
-	<script src="./scripts/registerModal.js" defer></script>
-	<script src="./scripts/libraryCard.js" defer></script>
-	<script src="./scripts/burgerHandler.js" defer></script>
-	<script src="./scripts/carusel.js" defer></script>
-	<script src="./scripts/slider.js" defer></script>
+	<script src="./scripts/components/authMenu.js" defer ></script>
+	<script src="./scripts/components/burger.js" defer></script>
+	<script src="./scripts/components/modal.js" defer></script>
+	<script src="./scripts/components/slider.js" defer></script>
+	<script src="./scripts/components/libraryCardForm.js" defer></script>
+	<script src="./scripts/components/carusel.js" defer></script>
+	<script src="./scripts/components/signUp.js" defer></script>
+	<script src="./scripts/components/logIn.js" defer></script>
+	<script src="./scripts/form.js" defer></script>
+	<script src="./scripts/user.js" defer></script>
 	<script src="./scripts/index.js" defer ></script>
 	<title>Library</title>
 </head>
@@ -46,8 +50,8 @@
 					<button class="auth-menu__profile icon-link"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></button>
 					<div class="auth-menu__menu hidden">
 						<p class="auth-menu__title">Profile</p>
-						<button class="auth-menu__button" value="log-in">Log in</button>
-						<button class="auth-menu__button" value="register">Register</button>
+						<button class="auth-menu__button" value="modal-log-in">Log in</button>
+						<button class="auth-menu__button" value="modal-sign-up">Register</button>
 					</div>
 				</div>
 				<div class="burger-button">
@@ -373,6 +377,7 @@
 									id="readersName"
 									placeholder="Reader's name"
 									pattern="[a-zA-Z ]+"
+									title="enter your first name and last name separated by a single space character"
 									>
 								<input
 									class="card-form__input text-input"
@@ -380,7 +385,8 @@
 									name="card-data"
 									id="cardNumber"
 									placeholder="Card number"
-									pattern="[a-zA-Z0-9]+">
+									pattern="[\dA-Fa-f]{9}"
+									title="enter a valid 9 character card number">
 							</div>
 							<button class="button card-form__submit" type="submit" value="checkCard">Check the card</button>
 							<div class="card-profile">
@@ -435,8 +441,8 @@
 						<h4 class="get-card__title">Get a reader card</h4>
 						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
 						<div class="get-card__buttons">
-							<button class="button get-card__button" value="register">Sign Up</button>
-							<button class="button get-card__button" value="log-in">Log in</button>
+							<button class="button get-card__button" value="modal-sign-up">Sign Up</button>
+							<button class="button get-card__button" value="modal-log-in">Log in</button>
 						</div>
 					</div>
 					<div class="get-card" data-login="true">
@@ -486,35 +492,59 @@
 			</div>
 		</div>
 	</footer>
-	<dialog class="modal" id="register-modal">
+	<dialog class="modal" id="sign-up-modal">
 		<div class="modal__content">
 			<button class="modal__close"><div></div>
 			<div></div></button>
 			<h2 class="modal__title">register</h2>
-			<form action="" class="register-form">
-				<fieldset class="register-form__fields">
-					<div class="register-form__text-field">
-						<label for="first-name" class="text-label">First name</label>
-						<input required class="register-form__text-input text-input" type="text" id="firstName" pattern="\w+" title="input must contain more then one character">
+			<form action="" class="modal-form">
+				<fieldset class="modal-form__fields">
+					<div class="modal-form__text-field">
+						<label for="firstName" class="text-label">First name</label>
+						<input required class="modal-form__text-input text-input" type="text" id="firstName" pattern="\w+" title="input must contain more then one character">
 					</div>
-					<div class="register-form__text-field">
-						<label for="last-name" class="text-label">Last name</label>
-						<input required class="register-form__text-input text-input" type="text" id="lastName" pattern="\w+" title="input must contain more then one character">
+					<div class="modal-form__text-field">
+						<label for="lastName" class="text-label">Last name</label>
+						<input required class="modal-form__text-input text-input" type="text" id="lastName" pattern="\w+" title="input must contain more then one character">
 					</div>
-					<div class="register-form__text-field">
+					<div class="modal-form__text-field">
 						<label for="email" class="text-label">E-mail</label>
-						<input required class="register-form__text-input text-input" type="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="input must be a valid e-mail address">
+						<input required class="modal-form__text-input text-input" type="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="input must be a valid e-mail address">
 					</div>
-					<div class="register-form__text-field">
+					<div class="modal-form__text-field">
 						<label for="password" class="text-label">Password</label>
-						<input required class="register-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
+						<input required class="modal-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
 					</div>
 				</fieldset>
-				<button class="register-form__sign-up button" type="submit" value="sign-up">Sign Up</button>
+				<button class="modal-form__submit button" type="submit" value="sign-up">Sign Up</button>
 			</form>
 			<div class="annotation">
 				<p class="annotation__text">Already have an account?</p>
-				<button class="annotation__login">Login</button>
+				<button class="annotation__button" value="modal-log-in">Login</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="log-in-modal">
+		<div class="modal__content">
+			<button class="modal__close"><div></div>
+			<div></div></button>
+			<h2 class="modal__title">Login</h2>
+			<form action="" class="modal-form">
+				<fieldset class="modal-form__fields">
+					<div class="modal-form__text-field">
+						<label for="email" class="text-label">E-mail or readers card</label>
+						<input required class="modal-form__text-input text-input" type="text" id="email" pattern="([^@\s]+@[^@\s]+\.[^@\s]+)|([\dA-Fa-f]{9})" title="input must be a valid e-mail address or a valid card number">
+					</div>
+					<div class="modal-form__text-field">
+						<label for="password" class="text-label">Password</label>
+						<input required class="modal-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
+					</div>
+				</fieldset>
+				<button class="modal-form__submit button" type="submit" value="log-in">Log in</button>
+			</form>
+			<div class="annotation">
+				<p class="annotation__text">Don’t have an account?</p>
+				<button class="annotation__button" value="modal-sign-up">Register</button>
 			</div>
 		</div>
 	</dialog>

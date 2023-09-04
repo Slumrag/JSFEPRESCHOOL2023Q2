@@ -13,11 +13,7 @@ function burgerHandler(e) {
 	if (e.target.closest('.burger-button')) {
 		toggleBurgerMenu();
 	}
-	if (
-		!e.target.closest('.controls') ||
-		e.target.closest('.nav-link') ||
-		e.target.closest('.auth-menu__profile')
-	) {
+	if (!e.target.closest('.controls') || e.target.closest('.nav-link, .auth-menu__profile')) {
 		closeBurgerMenu();
 	}
 }

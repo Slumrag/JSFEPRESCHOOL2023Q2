@@ -15,4 +15,5 @@
 /* footer */
 @import url(./components/footer.css);
 /* modals */
-@import url(./components/modals/register.css);
+@import url(./components/modal.css);
+@import url(./components/modals/form.css);
