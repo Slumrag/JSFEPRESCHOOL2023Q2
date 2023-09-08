@@ -5,6 +5,6 @@ function modalHandler(modal, buttons) {
 			event.target.classList.contains('modal')
 		)
 			modal.close();
-		if (buttons.includes(event.target)) modal.showModal();
+		if (event.target.closest(buttons)) modal.showModal();
 	};
 }

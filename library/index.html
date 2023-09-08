@@ -19,17 +19,19 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 	<link rel="stylesheet" href="./styles/styles.css">
 	<!-- scripts -->
+	<script src="./scripts/form.js" defer></script>
+	<script src="./scripts/user.js" defer></script>
+	<script src="./scripts/index.js" defer ></script>
+
+	<script src="./scripts/components/modal.js" defer></script>
 	<script src="./scripts/components/authMenu.js" defer ></script>
 	<script src="./scripts/components/burger.js" defer></script>
-	<script src="./scripts/components/modal.js" defer></script>
 	<script src="./scripts/components/slider.js" defer></script>
 	<script src="./scripts/components/libraryCardForm.js" defer></script>
 	<script src="./scripts/components/carusel.js" defer></script>
 	<script src="./scripts/components/signUp.js" defer></script>
 	<script src="./scripts/components/logIn.js" defer></script>
-	<script src="./scripts/form.js" defer></script>
-	<script src="./scripts/user.js" defer></script>
-	<script src="./scripts/index.js" defer ></script>
+	<script src="./scripts/components/profile.js" defer></script>
 	<title>Library</title>
 </head>
 <body>
@@ -47,11 +49,16 @@
 					</ul>
 				</nav>
 				<div class="auth-menu">
-					<button class="auth-menu__profile icon-link"><img src="./assets/icons/icon_profile.svg" alt="profile icon"></button>
+					<button class="auth-menu__profile icon-link">
+						<p class="auth-menu__initials"></p>
+						<img src="./assets/icons/icon_profile.svg" alt="profile icon">
+					</button>
 					<div class="auth-menu__menu hidden">
 						<p class="auth-menu__title">Profile</p>
-						<button class="auth-menu__button" value="modal-log-in">Log in</button>
+						<button class="auth-menu__button" value="modal-log-in">Log In</button>
 						<button class="auth-menu__button" value="modal-sign-up">Register</button>
+						<button class="auth-menu__button" value="modal-profile">My Profile</button>
+						<button class="auth-menu__button" value="log-out">Log Out</button>
 					</div>
 				</div>
 				<div class="burger-button">
@@ -365,7 +372,7 @@
 			<div class="section-content">
 				<h2 class="section__title">Digital Library Cards</h2>
 				<div class="forms-wrapper">
-					<div class="find-card" data-login="false">
+					<div class="find-card">
 						<h4 class="find-card__title">Find your Library card</h4>
 						<form class="card-form" action="/" id="card-form">
 							<div class="card-form__inputs">
@@ -393,7 +400,7 @@
 								<div class="card-profile__item">
 									<span class="card-profile__title">Visits</span>
 									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon">
-									<span class="card-profile__count" data-profile="visits">23</span>
+									<span class="card-profile__count" data-profile="visitCount">23</span>
 								</div>
 								<div class="card-profile__item">
 									<span class="card-profile__title">Bonuses</span>
@@ -408,35 +415,6 @@
 							</div>
 						</form>
 					</div>
-					<!-- <div class="find-card" data-login="true">
-						<h4 class="find-card__title">Your Library card</h4>
-						<form class="card-form" action="/" id="card-form">
-							<div class="card-form__inputs">
-								<label class="card-form__label" for="reader-name">Brooklyn Public Library</label>
-								<input class="card-forms__input text-input" type="text" name="card-data" id="reader-name"
-									placeholder="Reader's name" pattern="[a-zA-Z ]+" value="John Doe">
-								<input class="card-form__input text-input" type="text" name="card-data" id="card-num"
-									placeholder="Card number" pattern="[a-zA-Z0-9]+" value="F00234030">
-							</div>
-							<div class="card-profile">
-								<div class="card-profile__item">
-									<span class="card-profile__title">Visits</span>
-									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon" >
-									<span class="card-profile__count" data-profile="visits">23</span>
-								</div>
-								<div class="card-profile__item">
-									<span class="card-profile__title">Bonuses</span>
-									<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon" >
-									<span class="card-profile__count" data-profile="bounces">1240</span>
-								</div>
-								<div class="card-profile__item">
-									<span class="card-profile__title">Books</span>
-									<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon" >
-									<span class="card-profile__count" data-profile="books">2</span>
-								</div>
-							</div>
-						</form>
-					</div> -->
 					<div class="get-card" data-login="false">
 						<h4 class="get-card__title">Get a reader card</h4>
 						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
@@ -449,7 +427,7 @@
 						<h4 class="get-card__title">Visit your profile</h4>
 						<p class="get-card__description">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
 						<div class="get-card__buttons">
-							<button class="button get-card__button" id="profile">Profile</button>
+							<button class="button get-card__button" value="modal-profile">Profile</button>
 						</div>
 					</div>
 				</div>
@@ -532,8 +510,8 @@
 			<form action="" class="modal-form">
 				<fieldset class="modal-form__fields">
 					<div class="modal-form__text-field">
-						<label for="email" class="text-label">E-mail or readers card</label>
-						<input required class="modal-form__text-input text-input" type="text" id="email" pattern="([^@\s]+@[^@\s]+\.[^@\s]+)|([\dA-Fa-f]{9})" title="input must be a valid e-mail address or a valid card number">
+						<label for="emailCardNumber" class="text-label">E-mail or readers card</label>
+						<input required class="modal-form__text-input text-input" type="text" id="emailCardNumber" pattern="([^@\s]+@[^@\s]+\.[^@\s]+)|([\dA-Fa-f]{9})" title="input must be a valid e-mail address or a valid card number">
 					</div>
 					<div class="modal-form__text-field">
 						<label for="password" class="text-label">Password</label>
@@ -545,6 +523,56 @@
 			<div class="annotation">
 				<p class="annotation__text">Don’t have an account?</p>
 				<button class="annotation__button" value="modal-sign-up">Register</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="profile-modal">
+		<div class="modal__content">
+			<button class="modal__close">
+				<div></div>
+				<div></div>
+			</button>
+			<div class="profile">
+				<div class="profile__user">
+					<div class="profile__initials">
+						jD
+					</div>
+					<p class="profile__name">John Doe</p>
+				</div>
+				<div class="profile__info">
+					<h2 class="profile__title">my profile</h2>
+					<div class="card-profile">
+						<div class="card-profile__item">
+							<span class="card-profile__title">Visits</span>
+							<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon">
+							<span class="card-profile__count" data-profile="visitCount">23</span>
+						</div>
+						<div class="card-profile__item">
+							<span class="card-profile__title">Bonuses</span>
+							<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon">
+							<span class="card-profile__count" data-profile="bounces">1240</span>
+						</div>
+						<div class="card-profile__item">
+							<span class="card-profile__title">Books</span>
+							<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon">
+							<span class="card-profile__count" data-profile="books">2</span>
+						</div>
+					</div>
+					<div class="book-list">
+						<p class="book-list__title">Rented books</p>
+						<ul class="book-list__list">
+
+						</ul>
+					</div>
+					<div class="card-number">
+						Card number<span class="highlighted">F00234030</span>
+						<button class="copy-button" title="copy card number"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+							<rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+							<rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5" />
+						</svg>
+					</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</dialog>

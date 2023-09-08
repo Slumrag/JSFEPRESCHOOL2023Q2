@@ -1,6 +1,8 @@
-.modal[open=open]{
-	z-index: 10 !important;
+.modal::backdrop {
+	background: #000000;
+	opacity: 0.7;
 }
+
 .modal__content {
 	padding: 20px 25px;
 	display: flex;
@@ -17,11 +19,6 @@
 #log-in-modal .modal__content {
 	width: 250px;
 	height: 262px;
-}
-
-.modal::backdrop {
-	background: #000000;
-	opacity: 0.7;
 }
 
 .modal__close {
@@ -71,7 +68,6 @@
 	align-self: start;
 	line-height: normal;
 }
-
 
 .annotation__button {
 	font-weight: 700;

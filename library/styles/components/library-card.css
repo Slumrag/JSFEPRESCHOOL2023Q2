@@ -1,6 +1,4 @@
-div[data-login=true]{
-	display: none;
-}
+
 .forms-wrapper {
 	display: flex;
 	align-self: stretch;
