@@ -5,11 +5,11 @@ const cardProfile = document.querySelector('.find-card .card-profile');
 const cardForm = document.querySelector('.card-form');
 
 libraryCardChangeLogInState();
-
+//show card info for logged out user
 document.addEventListener('click', (event) => {
 	if (!event.target.closest('.card-form__submit')) return;
-	if (!localStorage.getItem('user')) return;
 	event.preventDefault();
+	if (!localStorage.getItem('user')) return;
 	if (!isCardValid(readersName.value, cardNumber.value.toLowerCase())) return;
 	setCardProfile(cardProfile);
 	showCardProfile(cardProfile);

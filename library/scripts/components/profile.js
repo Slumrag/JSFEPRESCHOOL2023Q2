@@ -1,5 +1,6 @@
 const profileModal = document.querySelector('#profile-modal');
 const modalCardProfile = document.querySelector('#profile-modal .card-profile');
+
 document.addEventListener('click', modalHandler(profileModal, 'button[value=modal-profile]'));
 document.addEventListener('click', (event) => {
 	if (!event.target.closest('button[value=modal-profile]')) return;
@@ -18,11 +19,11 @@ function setUserProfile() {
 	const bookList = document.querySelector('.book-list__list');
 	const cardNumber = document.querySelector('.card-number span');
 	const books = getBookList();
+	bookList.innerHTML = '';
 	books.forEach((book) => {
 		const bookListItem = document.createElement('li');
 		bookListItem.classList.add('book-list__item');
-		console.log(bookListItem);
-		bookListItem.textContent = book;
+		bookListItem.textContent = book.title + ' By ' + book.author;
 		bookList.append(bookListItem);
 	});
 	initials.textContent = getUserInitials();

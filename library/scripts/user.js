@@ -6,10 +6,11 @@ function createUser(values) {
 		email: values.email,
 		password: values.password,
 		loggedIn: true,
+		purchasedCard: false,
 		cardNumber: generateCardNumber(),
 		visitCount: 1,
 		books: [],
-		bounces: 0,
+		bounces: 100,
 	};
 }
 function getUser() {
@@ -45,11 +46,13 @@ function generateCardNumber(base = 16, length = CARD_NUMBER_DIGITS) {
 	return cardNumber;
 }
 function getBookList() {
-	return JSON.parse(getUserAttribute('books'));
+	return Array.isArray(getUserAttribute('books'))
+		? getUserAttribute('books')
+		: JSON.parse(getUserAttribute('books'));
 }
-function buyBook(title) {
+function buyBook(book) {
 	const bookList = getBookList();
-	bookList.push(title);
+	bookList.push(book);
 	setUserAttribute('books', JSON.stringify(bookList));
 }
 function returnBook(title) {

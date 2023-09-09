@@ -14,6 +14,7 @@ document.addEventListener('click', (event) => {
 		setUserAttribute('loggedIn', false);
 		authMenuLoggedOut();
 		libraryCardChangeLogInState();
+		unsetCardButtons();
 	}
 });
 function authMenuChangeLogInState() {
