@@ -1,0 +1,8 @@
+:root{
+	--color-primary:rgb(193, 255, 6);
+	--color-secondary:#ffffff;
+
+	--bg-progress-bar:#000000;
+	--bg-gradient:linear-gradient(45deg, rgb(40, 40, 40), rgb(133, 133, 133));
+	--bg-shadow:0 0 10px #000000;
+}
