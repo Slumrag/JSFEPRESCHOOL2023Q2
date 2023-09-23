@@ -17,6 +17,24 @@ main {
   height: 100%;
 
 }
+.range-input {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+
+  height: 5px;
+  border-radius: 30px;
+  background: var(--bg-progress-bar);
+}
+
+.range-input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--color-primary);
+  width: 7px;
+  height: 10px;
+  border-radius: 5px;
+}
 
 .audio-player-wrapper {
   position: relative;
@@ -80,7 +98,7 @@ main {
   grid-template-rows: repeat(2,max-content) 1fr;
   grid-template-areas: 'play-pause song previous'
   'play-pause song next'
-  'timeline timeline timeline';
+  'timeline timeline volume';
   gap: 5px 15px;
 }
 
@@ -110,7 +128,7 @@ main {
   grid-area: timeline;
   justify-self: center;
   align-self: center;
-  width: 75%;
+  width: 90%;
 }
 
 .timeline {
@@ -120,23 +138,6 @@ main {
   gap: 5px;
 }
 
-.timeline__range {
-  cursor:pointer;
-  appearance: none;
-  -webkit-appearance: none;
-
-  height: 5px;
-  border-radius: 30px;
-  background: var(--bg-progress-bar);
-}
-.timeline__range::-webkit-slider-thumb{
-  appearance: none;
-  -webkit-appearance: none;
-  background: var(--color-primary);
-  width: 7px;
-  height: 10px;
-  border-radius: 5px;
-}
 .timeline__current {
   color:var(--color-secondary)
 }
@@ -145,7 +146,50 @@ main {
   align-self: end;
   color:var(--color-primary);
 }
+.controls__volume {
+  grid-area: volume;
+  align-self: center;
+}
 
+.volume {
+  /* display: flex; */
+  position: relative;
+}
+
+.volume__mute {
+  background: no-repeat center/cover;
+  background-image: url(../assets/svg/volume-2-svgrepo-com.svg);
+}
+.volume__mute_enable{
+
+  background-image: url(../assets/svg/volume-off-svgrepo-com.svg);
+
+}
+.volume__range-wrapper{
+  padding: 13px;
+  border-radius:30px;
+  position: absolute;
+  top: -60px;
+  left: -80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  rotate: -90deg;
+  background: var(--bg-gradient);
+  z-index: 5;
+  scale: 0;
+  transition: 120ms ease-in-out;
+}
+.volume__range {
+  width: 52px;
+}
+.volume__range_visible{
+  /* position: relative; */
+  scale: 1;
+  /* scale: 1 1; */
+}
 .controls__button {
   cursor:pointer;
   height: 30px;

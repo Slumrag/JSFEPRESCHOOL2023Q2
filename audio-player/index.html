@@ -25,8 +25,14 @@
 				</div>
 				<div class="controls__timeline timeline">
 					<p class="timeline__duration">1:11</p>
-					<input class="timeline__range" type="range" value="0" min="0" step="1" name="" id="song-progress" >
+					<input class="timeline__range range-input" type="range" value="0" min="0" step="1" name="" id="song-progress" >
 					<p class="timeline__current">0:00</p>
+				</div>
+				<div class="controls__volume volume">
+					<div class="volume__range-wrapper">
+						<input type="range" name="" id="song-volume" class="volume__range range-input" min="0" max="100" step="1" value="70" orient="vertical">
+					</div>
+					<button class="controls__button volume__mute" id="mute"></button>
 				</div>
 				<button class="controls__button controls__next" id="next-song"></button>
 				<button class="controls__button controls__previous" id="previous-song"></button>
@@ -35,7 +41,7 @@
 		</div>
 	</div>
 </main>
-<footer class="full-bleed ">
+<footer class="full-bleed">
 	<div class="contacts">
 		<a href="https://github.com/Slumrag" class="contacts__author" target="_blank" title="my github">Slumrag</a>
 		<a href="https://rs.school/js-stage0/" class="contacts__school" target="_blank" title="course link"></a>
