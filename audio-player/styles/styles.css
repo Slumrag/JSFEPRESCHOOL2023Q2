@@ -53,7 +53,6 @@ main {
   height: 100%;
   filter: blur(8px);
   background: no-repeat center/cover;
-  /* background-image:url(../assets/img/lemonade.png); */
 }
 
 .audio-player {
@@ -152,7 +151,6 @@ main {
 }
 
 .volume {
-  /* display: flex; */
   position: relative;
 }
 
@@ -225,10 +223,6 @@ main {
 .full-bleed {
   width: 100vw;
   position: relative;
-  /* left: 50%;
-  right: 50%; */
-  /* margin-left: -50vw;
-  margin-right: -50vw; */
   background: var(--bg-gradient);
 }
 

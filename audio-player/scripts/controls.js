@@ -16,7 +16,6 @@ function playAudio(audio) {
 	isPlaying = true;
 	let interval = 1000;
 	intervalId = setInterval(() => {
-		console.log('update');
 		updateTimeline();
 	}, interval);
 }
