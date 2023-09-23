@@ -29,22 +29,24 @@ main {
   background: #000000;
 }
 
-.audio-player-wrapper__image{
+.audio-player-wrapper__background{
   position: absolute;
   width: 100%;
   height: 100%;
   filter: blur(8px);
-  background: no-repeat center/cover url(../assets/img/lemonade.png);
+  background: no-repeat center/cover;
+  /* background-image:url(../assets/img/lemonade.png); */
 }
 
 .audio-player {
   border-radius: 10px;
-  max-width: 350px;
-  min-height: 450px;
+  width: 350px;
+  height: 500px;
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 150px;
   box-shadow:var(--bg-shadow);
 
   overflow: clip;
@@ -52,18 +54,24 @@ main {
 }
 
 .audio-player__thumbnail {
+  width: 100%;
+  height: 100%;
+  position: relative;
   object-fit: cover;
+  object-position: center;
+  transition: scale 500ms ease-in-out;
 }
-
+.audio-player__thumbnail_play{
+  scale: 1.2;
+}
 .audio-player__player {
   display: none;
 }
 
 .audio-player__controls {
-  padding: 20px 25px;
-  justify-self: end;
+  position: relative;
+  padding: 15px 25px;
   background: var(--bg-gradient);
-
 }
 
 .controls {
@@ -72,13 +80,12 @@ main {
   grid-template-rows: repeat(2,max-content) 1fr;
   grid-template-areas: 'play-pause song previous'
   'play-pause song next'
-  'time time time';
+  'timeline timeline timeline';
   gap: 5px 15px;
 }
 
 .controls__song {
   grid-area: song;
-
 }
 
 .song {
@@ -99,21 +106,21 @@ main {
   font-size: 17px;
 }
 
-.controls__time {
-  grid-area: time;
+.controls__timeline {
+  grid-area: timeline;
   justify-self: center;
   align-self: center;
   width: 75%;
 }
 
-.time {
+.timeline {
   display: flex;
   flex-direction: column;
   font-size: 13px;
   gap: 5px;
 }
 
-.time__range {
+.timeline__range {
   cursor:pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -122,7 +129,7 @@ main {
   border-radius: 30px;
   background: var(--bg-progress-bar);
 }
-.time__range::-webkit-slider-thumb{
+.timeline__range::-webkit-slider-thumb{
   appearance: none;
   -webkit-appearance: none;
   background: var(--color-primary);
@@ -130,11 +137,11 @@ main {
   height: 10px;
   border-radius: 5px;
 }
-.time__current {
+.timeline__current {
   color:var(--color-secondary)
 }
 
-.time__total {
+.timeline__total {
   align-self: end;
   color:var(--color-primary);
 }
@@ -145,7 +152,7 @@ main {
   width: 30px;
   transition:  150ms ease-in-out ;
   filter: invert(100%);
-  transition-property: opacity scale;
+  transition-property: opacity scale background-image;
 }
 .controls__button:hover{
   opacity: 0.75;
@@ -153,17 +160,23 @@ main {
 .controls__button:active{
   scale:1.1;
 }
-#next-song{
+.controls__next{
   grid-area: next;
+  background: no-repeat center/contain url(../assets/svg/forward.png);
 }
-#previous-song{
+.controls__previous{
   grid-area: previous;
+  background: no-repeat center/contain url(../assets/svg/backward.png);
 }
-#play-pause{
+.controls__play-pause{
   height: 50px;
   width: 50px;
   grid-area: play-pause;
   align-self: center;
+  background: no-repeat center/contain url(../assets/svg/play.png);
+}
+.controls__play-pause_play{
+  background-image: url(../assets/svg/pause.png);
 }
 .full-bleed {
   width: 100vw;

@@ -6,28 +6,31 @@
 	<title>Audio player</title>
 	<link rel="stylesheet" href="./styles/styles.css">
 
-	<script src="./scripts/index.js"></script>
+	<script src="./scripts/playlist.js" defer></script>
+	<script src="./scripts/controls.js" defer></script>
+	<script src="./scripts/timeline.js" defer></script>
+	<script src="./scripts/index.js" defer></script>
 </head>
 <body>
 <main>
 	<div class="audio-player-wrapper">
-		<div class="audio-player-wrapper__image"></div>
+		<audio src="./assets/audio/beyonce.mp3" class="audio-player__player"></audio>
+		<div class="audio-player-wrapper__background"></div>
 		<div class="audio-player">
 			<img src="./assets/img/lemonade.png" alt="cover don't start now" class="audio-player__thumbnail">
-			<audio src="./assets/audio/beyonce.mp3"  class="audio-player__player"></audio>
 			<div class="audio-player__controls controls">
 				<div class="controls__song song">
 					<p class="song__artist">artist</p>
 					<p class="song__title">song title</p>
 				</div>
-				<div class="controls__time time">
-					<p class="time__total">1:11</p>
-					<input class="time__range" type="range" value="0" name="" id="song-progress" >
-					<p class="time__current">0:00</p>
+				<div class="controls__timeline timeline">
+					<p class="timeline__total">1:11</p>
+					<input class="timeline__range" type="range" value="0" name="" id="song-progress" >
+					<p class="timeline__current">0:00</p>
 				</div>
-				<button class="controls__button" id="next-song"><img src="./assets/svg/forward.png" alt=""></button>
-				<button class="controls__button" id="previous-song"><img src="./assets/svg/backward.png" alt=""></button>
-				<button class="controls__button" id="play-pause"><img src="./assets/svg/play.png" alt=""></button>
+				<button class="controls__button controls__next" id="next-song"></button>
+				<button class="controls__button controls__previous" id="previous-song"></button>
+				<button class="controls__button controls__play-pause" id="play-pause"></button>
 			</div>
 		</div>
 	</div>
