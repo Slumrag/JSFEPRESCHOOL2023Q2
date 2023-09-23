@@ -5,6 +5,7 @@ function pauseAudio(audio) {
 		.classList.remove('audio-player__thumbnail_play');
 	audio.pause();
 	isPlaying = false;
+	clearInterval(intervalId);
 }
 function playAudio(audio) {
 	document.querySelector('#play-pause').classList.add('controls__play-pause_play');
@@ -13,6 +14,11 @@ function playAudio(audio) {
 		.classList.add('audio-player__thumbnail_play');
 	audio.play();
 	isPlaying = true;
+	let interval = 1000;
+	intervalId = setInterval(() => {
+		console.log('update');
+		updateTimeline();
+	}, interval);
 }
 function playPause(audio) {
 	if (isPlaying) {
@@ -31,15 +37,18 @@ function setSong(song) {
 	const audio = document.querySelector('audio');
 	audio.src = song?.src;
 	audio.currentTime = 0;
+	setTimeline(audio);
 	if (isPlaying) playAudio(audio);
 }
 function playNext(playlist) {
 	const nextIndex = (currentSongIndex + 1) % playlist.length;
+	clearInterval(intervalId);
 	setSong(playlist[nextIndex]);
 	currentSongIndex = nextIndex;
 }
 function playPrevious(playlist) {
 	const previousIndex = Math.abs(currentSongIndex - 1) % playlist.length;
+	clearInterval(intervalId);
 	setSong(playlist[previousIndex]);
 	currentSongIndex = previousIndex;
 }

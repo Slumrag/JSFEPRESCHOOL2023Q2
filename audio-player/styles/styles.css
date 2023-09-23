@@ -141,7 +141,7 @@ main {
   color:var(--color-secondary)
 }
 
-.timeline__total {
+.timeline__duration {
   align-self: end;
   color:var(--color-primary);
 }

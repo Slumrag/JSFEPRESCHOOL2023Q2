@@ -14,7 +14,7 @@
 <body>
 <main>
 	<div class="audio-player-wrapper">
-		<audio src="./assets/audio/beyonce.mp3" class="audio-player__player"></audio>
+		<audio src="./assets/audio/beyonce.mp3" class="audio-player__player" preload="metadata"></audio>
 		<div class="audio-player-wrapper__background"></div>
 		<div class="audio-player">
 			<img src="./assets/img/lemonade.png" alt="cover don't start now" class="audio-player__thumbnail">
@@ -24,8 +24,8 @@
 					<p class="song__title">song title</p>
 				</div>
 				<div class="controls__timeline timeline">
-					<p class="timeline__total">1:11</p>
-					<input class="timeline__range" type="range" value="0" name="" id="song-progress" >
+					<p class="timeline__duration">1:11</p>
+					<input class="timeline__range" type="range" value="0" min="0" step="1" name="" id="song-progress" >
 					<p class="timeline__current">0:00</p>
 				</div>
 				<button class="controls__button controls__next" id="next-song"></button>
@@ -37,8 +37,8 @@
 </main>
 <footer class="full-bleed ">
 	<div class="contacts">
-		<a href="https://rs.school/js-stage0/" class="contacts__school" target="_blank" title="course link"></a>
 		<a href="https://github.com/Slumrag" class="contacts__author" target="_blank" title="my github">Slumrag</a>
+		<a href="https://rs.school/js-stage0/" class="contacts__school" target="_blank" title="course link"></a>
 	</div>
 </footer>
 </body>
