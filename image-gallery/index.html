@@ -3,22 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Image Gallery</title>
     <link rel="stylesheet" href="./syles/style.css" />
 
-    <script src="./scripts/index.js" defer></script>
+    <script type="module" src="./scripts/index.js" defer></script>
+    <script type="module" src="./scripts/components/search.js" defer></script>
   </head>
   <body>
     <main class="wrapper main">
       <section class="search">
         <h1 class="search__logo">Unsplash API</h1>
-        <div class="search-bar">
+        <form method="get" class="search-bar" id="search-bar">
           <input
             type="search"
-            name=""
-            id="search-bar"
+            name="search"
             class="search-bar__input"
             placeholder="Search..."
+            required
           />
           <button type="submit" value="" class="search-bar__submit">
             <svg
@@ -44,21 +46,9 @@
               </g>
             </svg>
           </button>
-        </div>
+        </form>
       </section>
-      <section class="image-gallery">
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-        <img src="./assets/img/placeholder.png" alt="" class="image-gallery__item" />
-      </section>
+      <section class="image-gallery"></section>
     </main>
     <footer class="wrapper footer-container">
       <div class="about">

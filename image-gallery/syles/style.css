@@ -5,14 +5,13 @@
 body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  background:var(--bg-color);
+  background: var(--bg-color);
   color: var(--text-color);
 }
 
@@ -32,7 +31,8 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
 }
-.main{
+
+.main {
   padding-top: 50px;
   padding-bottom: 20px;
   display: flex;
@@ -79,23 +79,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
-.search-bar__submit svg *{
+
+.search-bar__submit svg * {
   stroke: var(--text-color);
 }
+
 .search-bar__submit:focus-visible {
-    outline: 1px solid #000000;
+  outline: 1px solid #000000;
 }
 
 .image-gallery {
   padding: 10px;
   width: 100%;
   height: 100%;
-  border-radius:10px;
+  border-radius: 10px;
   background: var(--color-secondary);
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-auto-rows: 1fr;
   grid-auto-flow: row;
@@ -114,6 +115,7 @@ body {
   display: flex;
   margin-top: auto;
 }
+
 .about {
   width: 100%;
   padding: 0 5px;
@@ -136,22 +138,19 @@ body {
 
 .about__github {
 }
+
 .about__github:hover {
   text-decoration: underline;
 }
 
-@media (max-width:769px) {
-
+@media (max-width: 769px) {
   .image-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
-
 }
 
-@media (max-width:450px) {
-
+@media (max-width: 450px) {
   .image-gallery {
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
-
 }
