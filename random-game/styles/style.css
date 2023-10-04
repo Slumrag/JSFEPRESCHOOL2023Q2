@@ -1,0 +1,123 @@
+@import url(./fonts.css);
+@import url(./vars.css);
+@import url(./reset.css);
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  font-family: 'Pixeloid mono', monospace;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+}
+.container {
+  flex: 1;
+  position: relative;
+  max-width: 1024px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 10px;
+  display: flex;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  padding: 0 1em;
+  min-height: 2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed var(--color-primary);
+  transition: 200ms ease-in-out;
+  transition-property: box-shadow scale;
+}
+.button:hover {
+  box-shadow: 0 0 5px var(--color-primary);
+}
+.button:active {
+  scale: 1.1;
+}
+.game {
+  align-self: center;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: repeat(2, max-content) 1fr;
+  grid-auto-rows: 50px;
+  grid-auto-flow: row;
+  gap: 0 10px;
+  grid-template-areas:
+    '. title .'
+    '. view controls'
+    '. view tip';
+}
+.game__title {
+  grid-area: title;
+  justify-self: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+.game__view {
+  grid-area: view;
+  width: 400px;
+  height: 400px;
+  border: 3px dashed var(--color-primary);
+}
+.game__controls {
+  margin-left: 20px;
+  width: max-content;
+  grid-area: controls;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.game__play-pause {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.game__score {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.game__tip {
+  width: 70%;
+  grid-area: tip;
+  font-size: 0.7rem;
+  align-self: end;
+}
+.footer {
+  height: 70px;
+  flex: 1;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__course-link {
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: no-repeat center/contain url(../assets/svg/rs_school_js.svg);
+}
+.footer__year {
+}
+.footer__github {
+}

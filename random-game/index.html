@@ -9,12 +9,22 @@
   </head>
 
   <body>
-    <main></main>
-    <footer>
-      <div class="container">
-        <a href="" class="course-link"></a>
-        <p class="year">2023</p>
-        <a href="" class="github"></a>
+    <main class="container">
+      <section class="game">
+        <h1 class="game__title">Snake</h1>
+        <canvas class="game__view" id="view"></canvas>
+        <div class="game__controls">
+          <p class="game__score">Score: <span>0</span></p>
+          <button class="game__play-pause button" id="play-pause">play</button>
+        </div>
+        <p class="game__tip">Tip: control snake movement with arrow keys</p>
+      </section>
+    </main>
+    <footer class="full-width">
+      <div class="container footer">
+        <a href="https://rs.school/js-stage0/" class="footer__course-link" target="_blank"></a>
+        <p class="footer__year">2023</p>
+        <a href="https://github.com/Slumrag" class="footer__github link" target="_blank">Slumrag</a>
       </div>
     </footer>
   </body>
