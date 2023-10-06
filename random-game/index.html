@@ -12,7 +12,9 @@
     <main class="container">
       <section class="game">
         <h1 class="game__title">Snake</h1>
-        <canvas class="game__view" id="view"></canvas>
+        <div class="game__view">
+          <canvas class="" id="view" height="400" width="400">Unable to load a game</canvas>
+        </div>
         <div class="game__controls">
           <p class="game__score">Score: <span>0</span></p>
           <button class="game__play-pause button" id="play-pause">play</button>
@@ -27,5 +29,9 @@
         <a href="https://github.com/Slumrag" class="footer__github link" target="_blank">Slumrag</a>
       </div>
     </footer>
+    <dialog class="modal" id="game-over">
+      <p>Game over :(</p>
+      <button class="button" id="restart">restart</button>
+    </dialog>
   </body>
 </html>
