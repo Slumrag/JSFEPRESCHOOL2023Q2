@@ -109,3 +109,12 @@ label {
 legend {
   display: block;
 }
+dialog {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+dialog[open] {
+  position: fixed;
+  margin: auto;
+}

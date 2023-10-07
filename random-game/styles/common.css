@@ -1,0 +1,45 @@
+.full-width {
+  width: 100vw;
+  position: relative;
+}
+.container {
+  flex: 1;
+  position: relative;
+  max-width: 1024px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 10px;
+  display: flex;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+.key {
+  color: var(--color-secondary);
+  background: var(--color-primary);
+  padding: 0.1em 0.5em;
+  /* border: var(--border) var(--color-primary); */
+}
+.highlight {
+  text-transform: uppercase;
+}
+.button {
+  padding: 0 1em;
+  min-height: 2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border) var(--color-primary);
+  transition: 100ms ease-out;
+  transition-property: box-shadow color background-color;
+}
+.button:hover {
+  box-shadow: 0 0 5px var(--color-primary);
+}
+.button:active {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}
