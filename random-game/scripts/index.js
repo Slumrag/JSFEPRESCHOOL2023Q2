@@ -4,13 +4,15 @@ console.log('https://rolling-scopes-school.github.io/slumrag-JSFEPRESCHOOL2023Q2
 
 const canvasMain = document.getElementById('view');
 const playPauseButton = document.getElementById('play-pause');
-const game = new Game(canvasMain, playPauseButton, main);
+
+const restartButton = document.getElementById('restart');
+const game = new Game(canvasMain, playPauseButton, restartButton, main);
 
 //main game loop
-function main(tFrame) {
+function main(currentTimeStamp) {
   Game.stopMain = requestAnimationFrame(main);
 
-  game.update(tFrame);
+  game.update(currentTimeStamp);
   game.render();
 }
 

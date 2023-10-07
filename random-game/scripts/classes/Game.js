@@ -2,19 +2,23 @@ import { Snake } from './Snake.js';
 import { Food } from './Food.js';
 import { randomFromRange } from '../utils/randomFromRange.js';
 export class Game {
-  constructor(canvas, playPauseButton, mainLoop, params) {
+  constructor(canvas, playPauseButton, restartButton, mainLoop, params) {
     this.isPaused = true;
     this.isOver = false;
 
     this.stopMain = 0;
-    this.initialtFrame = 0;
+    this.previousTimeStamp = 0;
     this.mainLoop = mainLoop;
+    this.updateRatePerS = 5;
 
     this.score = 0;
     this.HTMLScore = document.getElementById('score');
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
+
     this.playPauseButton = playPauseButton;
+    this.restartButton = restartButton;
+    this.gameOverModal = document.getElementById('game-over');
 
     this.segmentSize = params?.segmentSize ?? 16;
     this.cellSize = params?.cellSize ?? 20;
@@ -28,8 +32,9 @@ export class Game {
       { segmentSize: this.segmentSize, cellSize: this.cellSize }
     );
     this.food = new Food(this._getRandomPosition());
-
+    // snake movement
     document.addEventListener('keyup', (event) => {
+      if (this.isPaused || this.isOver) return;
       switch (event.code) {
         //up
         case 'ArrowUp':
@@ -57,13 +62,17 @@ export class Game {
           break;
       }
     });
+    // paly pause and restart button
     document.addEventListener('keyup', (event) => {
-      if (event.code !== 'Space') return;
-      this.playPause();
+      if (event.code === 'Space' && !this.isOver) {
+        this.playPause();
+      }
+      if (event.code === 'Enter' && this.isOver) {
+        this.start();
+      }
     });
-    this.playPauseButton.addEventListener('click', () => {
-      this.playPause();
-    });
+    this.playPauseButton.addEventListener('click', () => this.playPause());
+    this.restartButton.addEventListener('click', () => this.start());
   }
   playPause(e) {
     this.isPaused = !this.isPaused;
@@ -71,17 +80,57 @@ export class Game {
   }
   start() {
     this.score = 0;
-    //  delete this.snake;
-    this.snake = new Snake({ x: 5, y: 5 }, { direction: 'up' });
+    this.HTMLScore.textContent = this.score;
+
+    this.snake = new Snake(
+      { x: 10, y: 10 },
+      { segmentSize: this.segmentSize, cellSize: this.cellSize }
+    );
+
+    this.food.position = this._getRandomPosition();
+
+    this.gameOverModal.close();
     this.isOver = false;
     this.isPaused = false;
     requestAnimationFrame(this.mainLoop);
   }
   over() {
     console.log('game over');
+    this.gameOverModal.showModal();
     this.isOver = true;
 
     cancelAnimationFrame(this.stopMain);
+  }
+
+  update(currentTimeStamp) {
+    if (this.isPaused || this.isOver) return;
+    const elapsedMS = currentTimeStamp - this.previousTimeStamp;
+
+    const frameLengthMS = (1 / this.updateRatePerS) * 1000;
+    if (elapsedMS < frameLengthMS) return;
+    if (this._detectBoundingBoxCollision() || this._detectSelfCollision()) {
+      this.over();
+      return;
+    }
+    if (this._detectFoodCollision()) {
+      this.HTMLScore.textContent = ++this.score;
+      this.snake.grow();
+      this.food.position = this._getRandomPosition();
+    }
+    console.log(elapsedMS);
+    this.snake.move();
+    this.previousTimeStamp = currentTimeStamp;
+  }
+  render() {
+    const primaryColor =
+      getComputedStyle(this.canvas).getPropertyValue('--color-primary') ?? '#1c3522';
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    this.context.strokeStyle = primaryColor;
+    this.context.fillStyle = primaryColor;
+
+    this.snake.render(this.context);
+    this.food.render(this.context);
   }
   //returns true if snake head collides with bounding box, else returns false
   _detectBoundingBoxCollision() {
@@ -124,34 +173,5 @@ export class Game {
       };
     }
     return pos;
-  }
-  update(tFrame) {
-    if (this.isPaused || this.isOver) return;
-    const updateRate = 20;
-    const frameLength = 16.6666667;
-    // console.log('update', tFrame - this.initialtFrame, secondsDigit);
-    if (!(Math.floor(tFrame - this.initialtFrame) > frameLength * updateRate)) return;
-    if (this._detectBoundingBoxCollision() || this._detectSelfCollision()) {
-      this.over();
-      return;
-    }
-    if (this._detectFoodCollision()) {
-      this.HTMLScore.textContent = ++this.score;
-      this.snake.grow();
-      this.food.position = this._getRandomPosition();
-    }
-    this.snake.move();
-    this.initialtFrame = tFrame;
-  }
-  render() {
-    const primaryColor =
-      getComputedStyle(this.canvas).getPropertyValue('--color-primary') ?? '#1c3522';
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-    this.context.strokeStyle = primaryColor;
-    this.context.fillStyle = primaryColor;
-
-    this.snake.render(this.context);
-    this.food.render(this.context);
   }
 }

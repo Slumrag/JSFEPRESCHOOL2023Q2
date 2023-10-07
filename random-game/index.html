@@ -30,8 +30,22 @@
       </div>
     </footer>
     <dialog class="modal" id="game-over">
-      <p>Game over :(</p>
-      <button class="button" id="restart">restart</button>
+      <div class="modal__container">
+        <h2 class="modal__title">Game over :(</h2>
+        <p class="modal__description">
+          To restart press <b class="highlight">restart</b> button or <span class="key">Enter</span>
+        </p>
+        <button class="button modal__button" id="restart">restart</button>
+      </div>
+    </dialog>
+    <dialog class="modal" id="game-start">
+      <div class="modal__container">
+        <h2 class="modal__title">Start game</h2>
+        <p class="modal__description">
+          To restart press <b class="highlight">start</b> button or <span class="key">Enter</span>
+        </p>
+        <button class="button modal__button" id="start">start</button>
+      </div>
     </dialog>
   </body>
 </html>

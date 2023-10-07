@@ -44,7 +44,6 @@ export class Snake {
     )
       return;
 
-    // console.log('dir changed from', this.direction, 'to', newDirection);
     this.direction = newDirection;
   }
   grow() {
