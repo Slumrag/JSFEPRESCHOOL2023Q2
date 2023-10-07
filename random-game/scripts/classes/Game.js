@@ -2,7 +2,7 @@ import { Snake } from './Snake.js';
 import { Food } from './Food.js';
 import { randomFromRange } from '../utils/randomFromRange.js';
 export class Game {
-  constructor(canvas, playPauseButton, restartButton, mainLoop, params) {
+  constructor(canvas, startButton, playPauseButton, restartButton, mainLoop, params) {
     this.isPaused = true;
     this.isOver = false;
 
@@ -18,7 +18,11 @@ export class Game {
 
     this.playPauseButton = playPauseButton;
     this.restartButton = restartButton;
+    this.startButton = startButton;
     this.gameOverModal = document.getElementById('game-over');
+    this.startModal = document.getElementById('game-start');
+    this.pauseOverlay = document.querySelector('.game__pause');
+    this.pauseOverlay.style.display = 'none';
 
     this.segmentSize = params?.segmentSize ?? 16;
     this.cellSize = params?.cellSize ?? 20;
@@ -73,9 +77,13 @@ export class Game {
     });
     this.playPauseButton.addEventListener('click', () => this.playPause());
     this.restartButton.addEventListener('click', () => this.start());
+    this.startButton.addEventListener('click', () => this.start());
+    this.startModal.showModal();
   }
   playPause(e) {
     this.isPaused = !this.isPaused;
+
+    this.pauseOverlay.style.display = this.isPaused ? 'flex' : 'none';
     this.playPauseButton.textContent = this.isPaused ? 'play' : 'pause';
   }
   start() {
@@ -90,6 +98,7 @@ export class Game {
     this.food.position = this._getRandomPosition();
 
     this.gameOverModal.close();
+    this.startModal.close();
     this.isOver = false;
     this.isPaused = false;
     requestAnimationFrame(this.mainLoop);

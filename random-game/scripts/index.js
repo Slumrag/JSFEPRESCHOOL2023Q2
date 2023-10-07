@@ -6,11 +6,12 @@ const canvasMain = document.getElementById('view');
 const playPauseButton = document.getElementById('play-pause');
 
 const restartButton = document.getElementById('restart');
-const game = new Game(canvasMain, playPauseButton, restartButton, main);
+const startButton = document.getElementById('start');
+const game = new Game(canvasMain, startButton, playPauseButton, restartButton, main);
 
 //main game loop
 function main(currentTimeStamp) {
-  Game.stopMain = requestAnimationFrame(main);
+  game.stopMain = requestAnimationFrame(main);
 
   game.update(currentTimeStamp);
   game.render();
