@@ -1,5 +1,5 @@
 export class Snake {
-  constructor(position = { x: 0, y: 0 }, args) {
+  constructor(position = { x: 0, y: 0 }, params) {
     this.directions = ['up', 'right', 'down', 'left'];
     this.position = position;
     this.tail = [
@@ -8,10 +8,10 @@ export class Snake {
       { ...position },
     ];
     this.length = this.tail.length;
-    this.direction = args?.direction ?? 'right';
-    this.speed = args?.speed ?? 1;
-    this.segmentSize = args?.segmentSize ?? 16;
-    this.cellSize = args?.cellSize ?? 20;
+    this.direction = params?.direction ?? 'right';
+    this.speed = params?.speed ?? 1;
+    this.size = params?.size ?? 16;
+    this.cellSize = params?.cellSize ?? 20;
   }
   move() {
     // console.log(this.tail);
@@ -48,18 +48,18 @@ export class Snake {
     this.direction = newDirection;
   }
   grow() {
-    this.tail.unshift({ x: 0, y: 0 });
+    this.tail.unshift({ ...this.tail.at(-1) });
   }
   render(context) {
-    const offset = Math.floor((this.cellSize - this.segmentSize) / 2);
+    const offset = Math.floor((this.cellSize - this.size) / 2);
     this.tail.forEach((segment, i) => {
       const posX = segment.x * this.cellSize + offset;
       const posY = segment.y * this.cellSize + offset;
 
       if (i === this.tail.length - 1) {
-        renderSnakeHead(context, posX, posY, this.segmentSize, this.segmentSize);
+        renderSnakeHead(context, posX, posY, this.size, this.size);
       } else {
-        renderSnakeSegment(context, posX, posY, this.segmentSize, this.segmentSize);
+        renderSnakeSegment(context, posX, posY, this.size, this.size);
       }
     });
   }
