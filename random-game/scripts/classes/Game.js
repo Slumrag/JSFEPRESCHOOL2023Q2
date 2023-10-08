@@ -11,12 +11,23 @@ export class Game {
     this.previousTimeStamp = 0;
     this.mainLoop = mainLoop;
     this.updateRatePerS = 5;
+    this.startTimeout = 2000;
+
+    this.canvas = canvas;
+    this.context = canvas.getContext('2d');
+
+    this.segmentSize = params?.segmentSize ?? 16;
+    this.cellSize = params?.cellSize ?? 20;
+    this.gridSize = {
+      width: Math.floor(this.canvas.width / this.cellSize),
+      height: Math.floor(this.canvas.height / this.cellSize),
+    };
 
     this.score = 0;
     this.scoreValue = 10;
+    this.maxScore = this.gridSize.width * this.gridSize.height * this.scoreValue;
+
     this.HTMLScore = document.getElementById('score');
-    this.canvas = canvas;
-    this.context = canvas.getContext('2d');
 
     this.playPauseButton = playPauseButton;
     this.restartButton = restartButton;
@@ -27,13 +38,6 @@ export class Game {
     this.pauseOverlay = document.querySelector('.game__pause');
     this.pauseOverlay.style.display = 'none';
     this.HTMLScoreList = document.getElementById('score-list');
-
-    this.segmentSize = params?.segmentSize ?? 16;
-    this.cellSize = params?.cellSize ?? 20;
-    this.gridSize = {
-      width: Math.floor(this.canvas.width / this.cellSize),
-      height: Math.floor(this.canvas.height / this.cellSize),
-    };
 
     this.snake = new Snake(
       { x: 10, y: 10 },
@@ -85,6 +89,7 @@ export class Game {
     this.restartButton.addEventListener('click', () => this.start());
     this.startButton.addEventListener('click', () => this.start());
     this.startModal.showModal();
+    Object.seal(this);
   }
   playPause(e) {
     this.isPaused = !this.isPaused;
@@ -108,10 +113,15 @@ export class Game {
 
     Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
 
-    this.isOver = false;
-    this.isPaused = false;
-    requestAnimationFrame(this.mainLoop);
+    setTimeout(() => {
+      this.isOver = false;
+      this.isPaused = false;
+      requestAnimationFrame(this.mainLoop);
+    }, this.startTimeout);
   }
+  // restart(){
+  //   this.start();
+  // }
   over() {
     // console.log('game over');
     const timestamp = new Date().toJSON();

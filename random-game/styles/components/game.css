@@ -6,11 +6,11 @@
   grid-template-rows: repeat(2, max-content) 1fr;
   grid-auto-rows: 50px;
   grid-auto-flow: row;
-  gap: 0 10px;
+  gap: 0 20px;
   grid-template-areas:
     '. title .'
     'scoreboard view controls'
-    'scoreboard view tip';
+    'scoreboard view hint';
 }
 .game__title {
   grid-area: title;
@@ -20,7 +20,6 @@
   margin-bottom: 0.2em;
 }
 .game__scoreboard {
-  /* justify-self: center; */
   grid-area: scoreboard;
 }
 .game__pause {
@@ -39,6 +38,7 @@
   aspect-ratio: 1/3;
   background: var(--color-primary);
 }
+
 .game__view {
   box-sizing: content-box;
   position: relative;
@@ -69,10 +69,9 @@
   background-repeat: no-repeat, no-repeat, repeat;
   background-size: cover, cover, 20px 20px;
   background-position: center;
-  /* background-color: #fff; */
 }
 .game__controls {
-  margin-left: 20px;
+  /* margin-left: 20px; */
   width: max-content;
   grid-area: controls;
   display: flex;
@@ -80,6 +79,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .game__play-pause {
   width: 100px;
   text-transform: uppercase;
@@ -91,9 +91,22 @@
   font-weight: bold;
   font-size: 1.3rem;
 }
-.game__tip {
-  width: 70%;
-  grid-area: tip;
-  font-size: 0.7rem;
-  align-self: end;
+.game__hint {
+  /* margin-left: 20px; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  width: max-content;
+  white-space: wrap;
+  grid-area: hint;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+.game__hint h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.game__hint p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }

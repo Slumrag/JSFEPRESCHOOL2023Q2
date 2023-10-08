@@ -27,7 +27,15 @@
           <p class="game__score">Score: <span id="score">0</span></p>
           <button class="game__play-pause button" id="play-pause">play</button>
         </div>
-        <p class="game__tip">Tip: control snake movement with arrow keys</p>
+        <div class="game__hint">
+          <h4><b>Controls:</b></h4>
+          <p>
+            Use <b class="highlight">Arrow keys</b> or <span class="key">W</span>
+            <span class="key">A</span> <span class="key">S</span> <span class="key">D</span> to
+            move.
+          </p>
+          <p>Press <span class="key">Space</span> to pause/play.</p>
+        </div>
       </section>
     </main>
     <footer class="full-width">
@@ -38,21 +46,37 @@
       </div>
     </footer>
     <dialog class="modal" id="game-over">
-      <div class="modal__container">
+      <div class="modal__container game-over-screen">
         <h2 class="modal__title">Game over :(</h2>
         <p class="modal__description">
-          To restart game press <b class="highlight">restart</b> or <span class="key">Enter</span>
+          Press <b class="highlight">restart</b> or <span class="key">Enter</span>
         </p>
         <button class="button modal__button" id="restart">restart</button>
       </div>
     </dialog>
     <dialog class="modal" id="game-start">
-      <div class="modal__container">
-        <h2 class="modal__title">Start game</h2>
-        <p class="modal__description">
-          To start game press <b class="highlight">start</b> or <span class="key">Enter</span>
+      <div class="modal__container start-screen">
+        <div class="start-screen__container">
+          <h2 class="modal__title">Snake: the game</h2>
+          <p class="modal__description">
+            Press <b class="highlight">play</b> or <span class="key">Enter</span>
+          </p>
+          <button class="button modal__button" id="start">play</button>
+        </div>
+        <p class="start-screen__creator">
+          Created by
+          <a class="link" href="https://github.com/Slumrag" target="_blank">Andrey Rautkin</a>
         </p>
-        <button class="button modal__button" id="start">start</button>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="game-won">
+      <div class="modal__container game-win-screen">
+        <h2 class="modal__title">Congratulations! YOU won the game!</h2>
+        <p class="modal__description">
+          Press <b class="highlight">restart</b> or <span class="key">Enter</span>
+        </p>
+        <button class="button modal__button" id="restart">restart</button>
       </div>
     </dialog>
   </body>

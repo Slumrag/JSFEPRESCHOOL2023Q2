@@ -1,0 +1,23 @@
+.start-screen {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+.start-screen__container {
+  display: grid;
+  grid-template-rows: max-content max-content 70px;
+  place-content: center;
+  gap: 1.5em;
+}
+.modal__button {
+  justify-self: center;
+  align-self: center;
+  margin-top: auto;
+}
+.start-screen__creator {
+  position: absolute;
+  font-size: 0.9rem;
+  bottom: 2em;
+}

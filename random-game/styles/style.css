@@ -2,10 +2,11 @@
 @import url(./vars.css);
 @import url(./reset.css);
 @import url(./common.css);
+@import url(./modal.css);
 @import url(./components/game.css);
 @import url(./components/footer.css);
-@import url(./components/modal.css);
 @import url(./components/scoreboard.css);
+@import url(./components/start-screen.css);
 body {
   display: flex;
   flex-direction: column;
