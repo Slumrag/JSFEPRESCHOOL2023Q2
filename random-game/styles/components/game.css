@@ -9,8 +9,8 @@
   gap: 0 10px;
   grid-template-areas:
     '. title .'
-    '. view controls'
-    '. view tip';
+    'scoreboard view controls'
+    'scoreboard view tip';
 }
 .game__title {
   grid-area: title;
@@ -19,10 +19,13 @@
   font-weight: bold;
   margin-bottom: 0.2em;
 }
+.game__scoreboard {
+  /* justify-self: center; */
+  grid-area: scoreboard;
+}
 .game__pause {
   position: absolute;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   gap: 20px;

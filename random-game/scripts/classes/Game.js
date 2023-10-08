@@ -1,5 +1,6 @@
 import { Snake } from './Snake.js';
 import { Food } from './Food.js';
+import { Scoreboard } from './Scoreboard.js';
 import { randomFromRange } from '../utils/randomFromRange.js';
 export class Game {
   constructor(canvas, startButton, playPauseButton, restartButton, mainLoop, params) {
@@ -12,6 +13,7 @@ export class Game {
     this.updateRatePerS = 5;
 
     this.score = 0;
+    this.scoreValue = 10;
     this.HTMLScore = document.getElementById('score');
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
@@ -21,8 +23,10 @@ export class Game {
     this.startButton = startButton;
     this.gameOverModal = document.getElementById('game-over');
     this.startModal = document.getElementById('game-start');
+
     this.pauseOverlay = document.querySelector('.game__pause');
     this.pauseOverlay.style.display = 'none';
+    this.HTMLScoreList = document.getElementById('score-list');
 
     this.segmentSize = params?.segmentSize ?? 16;
     this.cellSize = params?.cellSize ?? 20;
@@ -36,6 +40,8 @@ export class Game {
       { segmentSize: this.segmentSize, cellSize: this.cellSize }
     );
     this.food = new Food(this._getRandomPosition());
+    this.scoreboard = new Scoreboard();
+    Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
     // snake movement
     document.addEventListener('keyup', (event) => {
       if (this.isPaused || this.isOver) return;
@@ -99,14 +105,23 @@ export class Game {
 
     this.gameOverModal.close();
     this.startModal.close();
+
+    Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
+
     this.isOver = false;
     this.isPaused = false;
     requestAnimationFrame(this.mainLoop);
   }
   over() {
-    console.log('game over');
-    this.gameOverModal.showModal();
+    // console.log('game over');
+    const timestamp = new Date().toJSON();
+
+    if (this.score > 0) {
+      this.scoreboard.add({ score: this.score, timestamp });
+      this.scoreboard.save();
+    }
     this.isOver = true;
+    this.gameOverModal.showModal();
 
     cancelAnimationFrame(this.stopMain);
   }
@@ -122,11 +137,12 @@ export class Game {
       return;
     }
     if (this._detectFoodCollision()) {
-      this.HTMLScore.textContent = ++this.score;
+      this.score += this.scoreValue;
+      this.HTMLScore.textContent = this.score;
       this.snake.grow();
       this.food.position = this._getRandomPosition();
     }
-    console.log(elapsedMS);
+    // console.log(elapsedMS);
     this.snake.move();
     this.previousTimeStamp = currentTimeStamp;
   }

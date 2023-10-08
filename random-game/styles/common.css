@@ -20,7 +20,6 @@
   color: var(--color-secondary);
   background: var(--color-primary);
   padding: 0.1em 0.5em;
-  /* border: var(--border) var(--color-primary); */
 }
 .highlight {
   text-transform: uppercase;
