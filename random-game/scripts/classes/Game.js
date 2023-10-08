@@ -3,18 +3,17 @@ import { Food } from './Food.js';
 import { Scoreboard } from './Scoreboard.js';
 import { randomFromRange } from '../utils/randomFromRange.js';
 export class Game {
-  constructor(canvas, startButton, playPauseButton, restartButton, mainLoop, params) {
+  constructor(canvas, mainLoop, params) {
+    this.canvas = canvas;
+    this.context = canvas.getContext('2d');
+
     this.isPaused = true;
     this.isOver = false;
+    this.isWon = false;
 
     this.stopMain = 0;
     this.previousTimeStamp = 0;
     this.mainLoop = mainLoop;
-    this.updateRatePerS = 5;
-    this.startTimeout = 2000;
-
-    this.canvas = canvas;
-    this.context = canvas.getContext('2d');
 
     this.segmentSize = params?.segmentSize ?? 16;
     this.cellSize = params?.cellSize ?? 20;
@@ -24,16 +23,28 @@ export class Game {
     };
 
     this.score = 0;
-    this.scoreValue = 10;
-    this.maxScore = this.gridSize.width * this.gridSize.height * this.scoreValue;
+    this.scorePerFood = 10;
+    this.maxScore = this.gridSize.width * this.gridSize.height * this.scorePerFood;
+    // this.maxScore = 20; //! for test
+    this.initialUpdateRate = 5; //per sec
+    this.maxUpdateRate = 20; //per sec
+
+    this._updateRate = this.initialUpdateRate; //per sec
+    this.updateRateStep = (this.maxUpdateRate - this.initialUpdateRate) / this.maxScore; // sec
+
+    this.startTimeout = 2000; //ms
 
     this.HTMLScore = document.getElementById('score');
+    this.HTMLGameOverScore = document.getElementById('game-over-score');
 
-    this.playPauseButton = playPauseButton;
-    this.restartButton = restartButton;
-    this.startButton = startButton;
-    this.gameOverModal = document.getElementById('game-over');
-    this.startModal = document.getElementById('game-start');
+    this.playPauseButton = params?.playPauseButton ?? document.getElementById('play-pause');
+    this.restartButton = params?.restartButton ?? document.getElementById('restart');
+    this.startButton = params?.startButton ?? document.getElementById('start');
+    this.playAgainButton = params?.playAgainButton ?? document.getElementById('play-again');
+
+    this.gameOverModal = params?.gameOverModal ?? document.getElementById('game-over');
+    this.gameStartModal = params?.gameStartModal ?? document.getElementById('game-start');
+    this.gameWonModal = params?.gameWonModal ?? document.getElementById('game-won');
 
     this.pauseOverlay = document.querySelector('.game__pause');
     this.pauseOverlay.style.display = 'none';
@@ -78,18 +89,32 @@ export class Game {
     });
     // paly pause and restart button
     document.addEventListener('keyup', (event) => {
-      if (event.code === 'Space' && !this.isOver) {
+      if (event.code === 'Space' && !this.isOver && !this.isWon) {
         this.playPause();
       }
       if (event.code === 'Enter' && this.isOver) {
         this.start();
       }
     });
+
     this.playPauseButton.addEventListener('click', () => this.playPause());
     this.restartButton.addEventListener('click', () => this.start());
     this.startButton.addEventListener('click', () => this.start());
-    this.startModal.showModal();
+    this.playAgainButton.addEventListener('click', () => this.start());
+
+    this.gameStartModal.showModal();
     Object.seal(this);
+  }
+  get updateRate() {
+    return this._updateRate;
+  }
+  set updateRate(rate) {
+    if (rate > 0 && rate <= this.maxUpdateRate) {
+      this._updateRate = rate;
+    }
+    if (rate > this.maxUpdateRate) {
+      this._updateRate = this.maxUpdateRate;
+    }
   }
   playPause(e) {
     this.isPaused = !this.isPaused;
@@ -109,19 +134,24 @@ export class Game {
     this.food.position = this._getRandomPosition();
 
     this.gameOverModal.close();
-    this.startModal.close();
+    this.gameStartModal.close();
+    this.gameWonModal.close();
 
     Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
-
+    this.isWon = false;
+    this.updateRate = this.initialUpdateRate;
     setTimeout(() => {
       this.isOver = false;
       this.isPaused = false;
       requestAnimationFrame(this.mainLoop);
     }, this.startTimeout);
   }
-  // restart(){
-  //   this.start();
-  // }
+  win() {
+    this.isWon = true;
+    this.gameWonModal.showModal();
+
+    cancelAnimationFrame(this.stopMain);
+  }
   over() {
     // console.log('game over');
     const timestamp = new Date().toJSON();
@@ -131,28 +161,38 @@ export class Game {
       this.scoreboard.save();
     }
     this.isOver = true;
+    this.isWon = false;
+    this.HTMLGameOverScore.textContent = this.score;
     this.gameOverModal.showModal();
 
     cancelAnimationFrame(this.stopMain);
   }
 
   update(currentTimeStamp) {
-    if (this.isPaused || this.isOver) return;
+    // console.log(this.updateRateStep);
+    if (this.isPaused || this.isOver || this.isWon) return;
     const elapsedMS = currentTimeStamp - this.previousTimeStamp;
 
-    const frameLengthMS = (1 / this.updateRatePerS) * 1000;
+    const frameLengthMS = (1 / this.updateRate) * 1000;
+
     if (elapsedMS < frameLengthMS) return;
+
     if (this._detectBoundingBoxCollision() || this._detectSelfCollision()) {
       this.over();
       return;
     }
+
     if (this._detectFoodCollision()) {
-      this.score += this.scoreValue;
+      this.score += this.scorePerFood;
       this.HTMLScore.textContent = this.score;
       this.snake.grow();
       this.food.position = this._getRandomPosition();
+      this.updateRate += this.updateRateStep;
     }
-    // console.log(elapsedMS);
+    if (this.score >= this.maxScore) {
+      this.win();
+      return;
+    }
     this.snake.move();
     this.previousTimeStamp = currentTimeStamp;
   }
@@ -194,7 +234,6 @@ export class Game {
   _isInsideSnake(pos) {
     return this.snake.tail.some((elem) => this._checkSamePositions(elem, pos));
   }
-
   _getRandomPosition() {
     let pos = {
       x: randomFromRange(0, this.gridSize.width - 1),

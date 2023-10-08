@@ -48,6 +48,7 @@
     <dialog class="modal" id="game-over">
       <div class="modal__container game-over-screen">
         <h2 class="modal__title">Game over :(</h2>
+        <p class="modal__score">Score: <span id="game-over-score"></span></p>
         <p class="modal__description">
           Press <b class="highlight">restart</b> or <span class="key">Enter</span>
         </p>
@@ -72,11 +73,11 @@
 
     <dialog class="modal" id="game-won">
       <div class="modal__container game-win-screen">
-        <h2 class="modal__title">Congratulations! YOU won the game!</h2>
+        <h2 class="modal__title">Congratulations!</br>YOU won the game!</h2>
         <p class="modal__description">
-          Press <b class="highlight">restart</b> or <span class="key">Enter</span>
+          Press <b class="highlight">play again</b> or <span class="key">Enter</span>
         </p>
-        <button class="button modal__button" id="restart">restart</button>
+        <button class="button modal__button" id="play-again">play again</button>
       </div>
     </dialog>
   </body>
