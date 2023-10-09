@@ -32,8 +32,14 @@ export class Game {
     this._updateRate = this.initialUpdateRate; //per sec
     this.updateRateStep = (this.maxUpdateRate - this.initialUpdateRate) / this.maxScore; // sec
 
-    this.startTimeout = 2000; //ms
+    this.startTimeout = 3500; //ms
 
+    this.SFX = {
+      eat: new Audio('../../assets/SFX/eatFood.mp3'),
+      gameOver: new Audio('../../assets/SFX/gameOver.mp3'),
+      countdown: new Audio('../../assets/SFX/countdown.mp3'),
+      victory: new Audio('../../assets/SFX/victory.mp3'),
+    };
     this.HTMLScore = document.getElementById('score');
     this.HTMLGameOverScore = document.getElementById('game-over-score');
 
@@ -57,6 +63,7 @@ export class Game {
     this.food = new Food(this._getRandomPosition());
     this.scoreboard = new Scoreboard();
     Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
+
     // snake movement
     document.addEventListener('keyup', (event) => {
       if (this.isPaused || this.isOver) return;
@@ -140,6 +147,7 @@ export class Game {
     Scoreboard.displayList(this.HTMLScoreList, this.scoreboard.list);
     this.isWon = false;
     this.updateRate = this.initialUpdateRate;
+    this.SFX.countdown.play();
     setTimeout(() => {
       this.isOver = false;
       this.isPaused = false;
@@ -148,6 +156,7 @@ export class Game {
   }
   win() {
     this.isWon = true;
+    this.SFX.victory.play();
     this.gameWonModal.showModal();
 
     cancelAnimationFrame(this.stopMain);
@@ -163,6 +172,7 @@ export class Game {
     this.isOver = true;
     this.isWon = false;
     this.HTMLGameOverScore.textContent = this.score;
+    this.SFX.gameOver.play();
     this.gameOverModal.showModal();
 
     cancelAnimationFrame(this.stopMain);
@@ -176,23 +186,29 @@ export class Game {
     const frameLengthMS = (1 / this.updateRate) * 1000;
 
     if (elapsedMS < frameLengthMS) return;
-
-    if (this._detectBoundingBoxCollision() || this._detectSelfCollision()) {
+    if (this._detectSelfCollision()) {
+      console.log('self collision');
       this.over();
       return;
     }
-
     if (this._detectFoodCollision()) {
       this.score += this.scorePerFood;
       this.HTMLScore.textContent = this.score;
       this.snake.grow();
       this.food.position = this._getRandomPosition();
       this.updateRate += this.updateRateStep;
+      this.SFX.eat.play();
     }
     if (this.score >= this.maxScore) {
       this.win();
       return;
     }
+    if (this._detectBoundingBoxCollision()) {
+      console.log('box collision');
+      this.over();
+      return;
+    }
+
     this.snake.move();
     this.previousTimeStamp = currentTimeStamp;
   }
