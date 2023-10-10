@@ -35,10 +35,10 @@ export class Game {
     this.startTimeout = 3500; //ms
 
     this.SFX = {
-      eat: new Audio('../../assets/SFX/eatFood.mp3'),
-      gameOver: new Audio('../../assets/SFX/gameOver.mp3'),
-      countdown: new Audio('../../assets/SFX/countdown.mp3'),
-      victory: new Audio('../../assets/SFX/victory.mp3'),
+      eat: new Audio('./assets/SFX/eatFood.mp3'),
+      gameOver: new Audio('./assets/SFX/gameOver.mp3'),
+      countdown: new Audio('./assets/SFX/countdown.mp3'),
+      victory: new Audio('./assets/SFX/victory.mp3'),
     };
     this.HTMLScore = document.getElementById('score');
     this.HTMLGameOverScore = document.getElementById('game-over-score');
