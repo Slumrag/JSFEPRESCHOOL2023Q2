@@ -1,0 +1,143 @@
+#profile-modal {
+	/* display: block;
+	position: fixed;
+	margin: auto; */
+}
+#profile-modal .modal__content{
+	padding: 0;
+	max-width: 600px;
+	min-height: 400px;
+}
+#profile-modal .modal__close{
+	top: 25px;
+	right: 25px;
+}
+.profile {
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: 170px calc(600px - 170px);
+}
+
+.profile__user {
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: var(--bg-color);
+}
+
+.profile__initials {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--text-color-light);
+	color: var(--color-active);
+	text-transform: uppercase;
+}
+
+.profile__name {
+	padding: 5px 15px;
+	background: var(--text-color-light);
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.profile__info {
+	padding: 40px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+}
+
+.profile__title {
+	text-transform: uppercase;
+	font-size: 4rem;
+	line-height: 2rem;
+	letter-spacing: 0.8px;
+	margin-bottom: 40px;
+}
+.profile .card-profile{
+	margin: 0;
+	align-self: start;
+	column-gap: 20px;
+	letter-spacing: 0.4px;
+}
+.profile .card-profile__item {
+	gap: 10px;
+}
+.profile .card-profile__title{
+	font-size: 2rem;
+	line-height: 2rem;
+}
+.book-list {
+	padding-bottom: 10px;
+	padding-top: 20px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.book-list__title {
+	font-size: 2.5rem;
+	line-height: 2rem;
+}
+
+.book-list__list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y:scroll;
+	max-height: 100px;
+	letter-spacing: 2px;
+}
+
+.book-list__item {
+	padding-left: 12px;
+	position: relative;
+	white-space: wrap;
+	word-break: break-all;
+	text-transform: capitalize;
+}
+.book-list__item::before{
+	--bullet-size:7px;
+	margin-right: 12px;
+	width: var(--bullet-size);
+	height: var(--bullet-size);
+	display: inline-block;
+
+	background: var(--text-color-dark);
+	content:'';
+	vertical-align: middle;
+	border-radius:50%;
+}
+
+.card-number {
+	margin-top: auto;
+	display: flex;
+	align-self: start;
+	justify-content: space-between;
+	gap: 15px;
+}
+
+.highlighted {
+	color:var(--color-active);
+}
+
+.copy-button {
+	height: 20px;
+	width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.copy-button:hover{
+	cursor: pointer;
+}
+.copy-button_active rect,
+.copy-button:active rect{
+	stroke:var(--color-active);
+	transition: stroke var(--transition-120);
+}

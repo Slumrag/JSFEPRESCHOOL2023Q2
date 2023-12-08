@@ -1,0 +1,30 @@
+.sc-welcome {
+	min-height: 600px;
+
+	background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-color) 0.01%, rgba(18, 18, 21, 0.10) 100%),
+		50% / cover no-repeat url(../../assets/images/welcome.png);
+}
+
+.greeting {
+	position: relative;
+	top: 220px;
+
+	width: 600px;
+	height: 220px;
+	padding: 35px 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: var(--bg-color);
+	color: var(--text-color-light);
+
+	font-size: 4rem;
+	font-weight: normal;
+	line-height: 1.25;
+	text-transform: uppercase;
+	text-align: center;
+	white-space: pre;
+	letter-spacing: 3px;
+}

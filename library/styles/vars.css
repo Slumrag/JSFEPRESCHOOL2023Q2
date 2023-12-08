@@ -1,0 +1,18 @@
+:root {
+	/* fonts */
+	--header-font: 400 3rem/5rem "Forum", serif;
+	--content-font: 400 2rem/2rem "Inter", sans-serif;
+	--content-font-bold: 800 4rem/4rem "Inter", sans-serif;
+	/* colors */
+	--text-color-dark: #000000;
+	--text-color-light: #FFFFFF;
+	--bg-color: #0C0C0E;
+	--color-active: #BB945F;
+	--color-disabled: #8E8E8E;
+	/* animation */
+	--transition-120: 120ms ease-in-out;
+	/*breakpoints*/
+	--desktop:1440px;
+	--laptop:1024px;
+	--tablet:769px;
+}

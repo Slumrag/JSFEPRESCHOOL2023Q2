@@ -1,0 +1,33 @@
+.modal-form {
+	display: flex;
+	flex-direction: column;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.modal-form__fields {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 20px 0;
+}
+
+.modal-form__text-field {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.modal-form__text-input{
+	width: 100%;
+	font-size: 1.5rem;
+	height: 20px;
+	border:1px solid var(--color-active);
+	border-radius:0;
+}
+.modal-form__submit {
+	font-size: 1rem;
+	width: 75px;
+	height: 30px;
+	margin-bottom: 10px;
+}
