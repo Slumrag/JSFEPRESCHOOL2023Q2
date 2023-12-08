@@ -1,0 +1,21 @@
+@import url(./vars.css);
+@import url(./reset.css);
+@import url(./global.css);
+/* header */
+@import url(./components/header.css);
+/* welcome */
+@import url(./components/welcome.css);
+/* about section */
+@import url(./components/about.css);
+/* favorites */
+@import url(./components/favorites.css);
+@import url(./components/coffee-shop.css);
+@import url(./components/our-contacts.css);
+@import url(./components/library-card.css);
+/* footer */
+@import url(./components/footer.css);
+/* modals */
+@import url(./components/modal.css);
+@import url(./components/modals/form.css);
+@import url(./components/modals/profile.css);
+@import url(./components/modals/buy-card.css);

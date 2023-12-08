@@ -1,0 +1,130 @@
+
+.forms-wrapper {
+	display: flex;
+	align-self: stretch;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap:20px;
+}
+
+
+.find-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+.find-card__title {
+	font:var(--content-font);
+	font-size: 3rem;
+	line-height: normal;
+	letter-spacing: 0.6px;
+}
+
+.card-form {
+	padding: 20px 20px 0px;
+	outline: 3px solid var(--color-active);
+	outline-offset: -3px;
+	width: 600px;
+	height: 386px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-form__inputs {
+	padding: 20px 20px 25px;
+	max-width: 560px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	background: var(--color-active);
+}
+
+.card-form__label {
+	font: var(--header-font);
+	font-size: 3rem;
+	line-height: 5rem;
+	letter-spacing: 0.6px;
+}
+.card-form__input {
+	line-height: 5rem;
+	letter-spacing: 0.6px;
+}
+.card-form__input:nth-child(3) {
+	margin-top: 5px;
+}
+.card-form__submit {
+	align-self: center;
+	font-size: 2rem;
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+.card-profile {
+	margin-top: -5px;
+	display: flex;
+	column-gap: 35px;
+	align-self: center;
+	text-align: center;
+	font-size: 1rem;
+	line-height: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.card-profile__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1px;
+}
+
+.get-card {
+	display: flex;
+	flex-direction: column;
+	justify-self: end;
+	gap: 35px;
+	text-align: end;
+	align-items: end;
+	flex: 1;
+}
+
+.get-card__title {
+	font-size: 3rem;
+	line-height: normal;
+	letter-spacing: 0.6px;
+}
+
+.get-card__description {
+	line-height: 4rem;
+	letter-spacing: 0.4px;
+	max-width: 456px;
+}
+
+.get-card__buttons {
+	display: flex;
+	gap: 20px;
+}
+.get-card__button {
+	width: 75px;
+	height: 30px;
+	text-transform: capitalize;
+}
+
+@media (max-width:1100px) {
+	.forms-wrapper{
+		align-self: center;
+		flex-direction: column;
+		align-items: center;
+	}
+	.get-card{
+		gap: 40px;
+		text-align: center;
+		align-items: center;
+	}
+	.get-card__description{
+		max-width: 600px;
+	}
+}

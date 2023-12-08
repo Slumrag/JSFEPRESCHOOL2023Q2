@@ -1,0 +1,127 @@
+
+.about-text {
+	margin-bottom: -2rem;
+	line-height: 4rem;
+	letter-spacing: normal;
+}
+
+.carousel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 58px;
+}
+.carousel__track{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+.carousel__arrow {
+	display: none;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:  6px 10px;
+	transition: var(--transition-120);
+}
+.carousel__arrow:active{
+	scale: 1.5;
+}
+.carousel__arrow_disabled {
+	cursor: default;
+	opacity: 0.3;
+}
+.carousel__arrow_disabled:hover{
+	scale: 1 !important;
+}
+#arrow-right {
+	background-image: url(../../assets/icons/arrow-right.svg);
+}
+#arrow-left {
+	background-image: url(../../assets/icons/arrow-left.svg);
+}
+
+.carousel__items {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 25px;
+	overflow-x: hidden;
+	height: 560px;
+	max-width: calc(450px*3 + 25px*2);
+	width: 100%;
+}
+
+.carousel__item {
+	min-width: 450px;
+	width: 100%;
+	height: 560px;
+	object-fit: cover;
+	transition: transform 250ms ease-in-out;
+}
+
+.pagination {
+	margin-top: -5px;
+	margin-bottom: -5px;
+	display: flex;
+	justify-content: space-between;
+}
+.pagination__button:nth-child(n + 4)
+{
+	display: none;
+}
+.pagination__button {
+	width: 26px;
+	height: 26px;
+	background: transparent;
+	border-radius: 50%;
+}
+.pagination__button::after{
+	content:"";
+	margin: auto;
+	position: relative;
+	border-radius: 50%;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: var(--bg-color);
+	transition: 250ms ease-in-out;
+}
+.pagination__button_active{
+	cursor: default !important;
+}
+.pagination__button_active::after,
+.pagination__button:active::after {
+	background: var(--color-active);
+}
+
+.pagination__button_active:hover::after,
+.pagination__button:active:hover::after {
+	scale:1 !important;
+}
+
+.pagination__button_hover,
+.pagination__button:hover {
+	cursor: pointer;
+}
+.pagination__button_hover::after,
+.pagination__button:hover::after {
+	scale: 1.1;
+}
+@media (max-width:1400px) {
+	.carousel__items{
+		max-width: 450px;
+	}
+	.carousel__arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.pagination__button:nth-child(n){
+		display: block;
+	}
+}
