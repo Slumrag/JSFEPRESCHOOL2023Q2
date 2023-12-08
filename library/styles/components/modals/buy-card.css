@@ -1,0 +1,80 @@
+#buy-card-modal .modal__content {
+	width: 640px;
+	height: 540px;
+	padding: 0;
+}
+
+#buy-card-modal .modal__close {
+	top: 25px;
+	right: 25px;
+}
+
+#buy-card-modal .modal__close div{
+	background-color: var(--text-color-light);
+}
+#buy-card-modal .modal__title{
+	align-self: stretch;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 4rem;
+	line-height: 50%;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+
+	background-color: var(--text-color-dark);
+	color:var(--text-color-light);
+}
+
+#buy-card-modal .modal__wrapper{
+	display: flex;
+	align-self: stretch;
+	justify-content: space-between;
+	padding: 30px 40px 40px;
+}
+
+#buy-card-modal .modal-form {
+	width: 200px;
+	letter-spacing: 0.3px;
+}
+#buy-card-modal .modal-form__fields{
+	margin-top: 0;
+}
+.expiration-code{
+	display: flex;
+	gap: 10px;
+}
+.expiration-code input,
+#cvc{
+	max-width: 45px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+#cvc{
+	margin-bottom: 10px;
+}
+#buy-card-modal .modal__description{
+	width: 330px;
+	font-size: 1.5rem;
+	line-height:  133.333%;
+	letter-spacing: 2px;
+	color:var(--color-disabled);
+}
+.modal-form__buy{
+	display: flex;
+	align-items: end;
+	gap: 25px;
+}
+#buy-card-modal .modal-form__submit{
+	margin: 0;
+}
+.modal-form__price{
+	color:var(--bg-color);
+	font-size: 2rem;
+	font-weight: 700;
+	line-height:  100% ;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="./favicon_io/site.webmanifest">
+	<!-- Forum font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+	<!-- normalize.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+	<link rel="stylesheet" href="./styles/styles.css">
+	<!-- scripts -->
+	<script src="./scripts/form.js" defer></script>
+	<script src="./scripts/user.js" defer></script>
+	<script src="./scripts/index.js" defer ></script>
+
+	<script src="./scripts/components/modal.js" defer></script>
+	<script src="./scripts/components/authMenu.js" defer ></script>
+	<script src="./scripts/components/burger.js" defer></script>
+	<script src="./scripts/components/slider.js" defer></script>
+	<script src="./scripts/components/libraryCardForm.js" defer></script>
+	<script src="./scripts/components/carusel.js" defer></script>
+	<script src="./scripts/components/signUp.js" defer></script>
+	<script src="./scripts/components/logIn.js" defer></script>
+	<script src="./scripts/components/profile.js" defer></script>
+	<script src="./scripts/components/buyCard.js" defer></script>
+	<title>Library</title>
+</head>
+<body>
+	<header class="header-container full-bleed">
+		<div class="header__content _wrapper">
+			<h1 class="title"><a class="home-link" href="./index.html">Brooklyn Public Library</a></h1>
+			<div class="controls" data-is-open="false">
+				<nav class="nav-menu">
+					<ul class="nav-menu__links">
+						<li><a href="#about" class="nav-menu__link nav-link">About</a></li>
+						<li><a href="#favorites" class="nav-menu__link nav-link">Favorites</a></li>
+						<li><a href="#coffee-shop" class="nav-menu__link nav-link">Coffee shop</a></li>
+						<li><a href="#contacts" class="nav-menu__link nav-link">Contacts</a></li>
+						<li><a href="#library-card" class="nav-menu__link nav-link">Library Card</a></li>
+					</ul>
+				</nav>
+				<div class="auth-menu">
+					<button class="auth-menu__profile icon-link">
+						<p class="auth-menu__initials"></p>
+						<img src="./assets/icons/icon_profile.svg" alt="profile icon">
+					</button>
+					<div class="auth-menu__menu hidden">
+						<p class="auth-menu__title">Profile</p>
+						<button class="auth-menu__button" value="modal-log-in">Log In</button>
+						<button class="auth-menu__button" value="modal-sign-up">Register</button>
+						<button class="auth-menu__button" value="modal-profile">My Profile</button>
+						<button class="auth-menu__button" value="log-out">Log Out</button>
+					</div>
+				</div>
+				<div class="burger-button">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="sc-welcome full-bleed">
+			<div class="_wrapper">
+				<h3 class="greeting">Welcome &NewLine;to the Brooklyn&NewLine;Library</h3>
+			</div>
+		</section>
+		<section class="_wrapper" id="about">
+			<div class="section-content ">
+				<h2 class="section__title">About</h2>
+				<p class="about-text section__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+				<div class="carousel">
+					<button class="carousel__arrow carousel__arrow_disabled" id="arrow-left"></button>
+					<div class="carousel__track">
+						<div class="carousel__items">
+							<img class="carousel__item current-item" src="./assets/images/carusel/book_isle.png" alt="book isle">
+							<img class="carousel__item" src="./assets/images/carusel/busts.png" alt="busts">
+							<img class="carousel__item" src="./assets/images/carusel/bookshelves.png" alt="book shelves">
+							<img class="carousel__item" src="./assets/images/carusel/bookshelves-2.png" alt="book shelves 2">
+							<img class="carousel__item" src="./assets/images/carusel/pillars.png" alt="pillars">
+						</div>
+						<div class="pagination">
+							<button class="pagination__button pagination__button_active"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+							<button class="pagination__button"></button>
+						</div>
+					</div>
+					<button class="carousel__arrow" id="arrow-right"></button>
+				</div>
+			</div>
+		</section>
+		<section class="_wrapper" id="favorites">
+			<div class="section-content">
+				<h2 class="section__title">Favorites</h2>
+				<div class="picker">
+					<h3 class="picker__title">Pick favorites of season</h3>
+					<fieldset class="options">
+						<div class="options__item">
+							<input checked class="options__radio" name="seasons" id="winter" type="radio" value="winter">
+							<label class="options__label" for="winter" data-text="Winter">winter</label>
+						</div>
+						<div class="options__item">
+							<input class="options__radio" name="seasons" id="spring" type="radio" value="spring">
+							<label class="options__label" for="spring" data-text="Spring">spring</label>
+						</div>
+						<div class="options__item">
+							<input class="options__radio" name="seasons" id="summer" type="radio" value="summer">
+							<label class="options__label" for="summer" data-text="Summer">summer</label>
+						</div>
+						<div class="options__item">
+							<input class="options__radio" name="seasons" id="autumn" type="radio" value="autumn">
+							<label class="options__label" for="autumn" data-text="Autumn">autumn</label>
+						</div>
+					</fieldset>
+				</div>
+				<div class="cards-container">
+					<div class="card-set" data-season="winter">
+						<div class="card" data-season="winter">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">The Book Eaters</span>&NewLine;By Sunyi Dean</h4>
+							<p class="card__description">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+							<button class="card__button button" data-author="Sunyi Dean" data-title="The Book Eaters">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/winter/the_book_eaters_book.png" alt="the book eaters cover">
+						</div>
+						<div class="card" data-season="winter">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Cackle</span>&NewLine;By Rachel Harrison</h4>
+							<p class="card__description">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a
+							woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+							<button class="card__button button" data-author="Rachel Harrison" data-title="Cackle">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/winter/cackle_book.png" alt="Cackle cover">
+						</div>
+						<div class="card" data-season="winter">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Dante: Poet of the Secular World</span>&NewLine;By Erich Auerbach</h4>
+							<p class="card__description">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing	for Dante's uniqueness as one&NewLine;who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+							<button class="card__button button" data-author="Erich Auerbach" data-title="Dante: Poet of the Secular World">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/winter/dante_book.png" alt="Dante cover">
+						</div>
+						<div class="card" data-season="winter">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">The Last Queen</span>&NewLine;By Clive Irving</h4>
+							<p class="card__description">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+							<button class="card__button button" data-author="Clive Irving" data-title="The Last Queen">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/winter/the_last_queen_book.png" alt="The last queen cover">
+						</div>
+					</div>
+					<!-- spring -->
+					<div class="card-set" data-season="spring">
+						<div class="card" data-season="spring">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">The Body</span>&NewLine;By Stephen King</h4>
+							<p class="card__description">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that
+							is youth.</p>
+							<button class="card__button button" data-author="Stephen King" data-title="The Body">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/spring/the_body.png" alt="the body">
+						</div>
+						<div class="card" data-season="spring">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Carry: A Memoir of Survival on Stolen Land</span>&NewLine;By Toni Jenson</h4>
+							<p class="card__description">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical
+							indictment of the way things are.</p>
+							<button class="card__button button" data-author="Toni Jenson" data-title="Carry: A Memoir of Survival on Stolen Land">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/spring/carry.png" alt="carry">
+						</div>
+						<div class="card" data-season="spring">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Days of Distraction</span>&NewLine;By Alexandra Chang</h4>
+							<p class="card__description">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one
+							form-defying package of spare prose.</p>
+							<button class="card__button button" data-author="Alexandra Chang" data-title="Days of Distraction">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/spring/days_of_distraction.png" alt="days of distraction">
+						</div>
+						<div class="card" data-season="spring">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Dominicana</span>&NewLine;By Angie Cruz</h4>
+							<p class="card__description">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her
+							marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+							<button class="card__button button" data-author="Angie Cruz" data-title="Dominicana">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/spring/dominicana.png" alt="dominicana">
+						</div>
+					</div>
+					<!-- summer -->
+					<div class="card-set" data-season="summer">
+						<div class="card" data-season="summer">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Crude: A Memoir</span>&NewLine;By Pablo Fajardo & Sophie Tardy-Joubert</h4>
+							<p class="card__description">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they
+							try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</p>
+							<button class="card__button button" data-author="Pablo Fajardo & Sophie Tardy-Joubert" data-title="Crude: A Memoir">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/summer/crude.png" alt="crude">
+						</div>
+						<div class="card" data-season="summer">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Let My People Go Surfing</span>&NewLine;By Yvon Chouinard</h4>
+							<p class="card__description">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding
+							and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10
+							More Years of Business Unusual.</p>
+							<button class="card__button button" data-author="By Yvon Chouinard" data-title="Let My People Go Surfing">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/summer/let_my_people_go_surfing.png" alt="let my people go surfing">
+						</div>
+						<div class="card" data-season="summer">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">The Octopus Museum: Poems</span>&NewLine;By Brenda Shaughnessy</h4>
+							<p class="card__description">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of
+							environmental destruction, racism, sexism, and divisive politics.</p>
+							<button class="card__button button" data-author="By Brenda Shaughnessy" data-title="The Octopus Museum: Poems">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/summer/the_octopus_museum.png" alt="the octopus museum">
+						</div>
+						<div class="card" data-season="summer">
+							<div class="card__logo">Staff Picks</div>
+							<h4 class="card__title"><span class="uppercase">Shark Dialogues: A Novel</span>&NewLine;By Kiana Davenport</h4>
+							<p class="card__description">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers
+							her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and
+							healers.</p>
+							<button class="card__button button" data-author="Kiana Davenport" data-title="Shark Dialogues: A Novel">Buy</button>
+							<img class="card__image" src="./assets/images/book_covers/summer/shark_dialogues.png" alt="Shark Dialogues: A Novel By Kiana Davenport">
+						</div>
+					</div>
+					<!-- autumn -->
+					<div class="card-set" data-season="autumn">
+							<div class="card" data-season="autumn">
+								<div class="card__logo">Staff Picks</div>
+								<h4 class="card__title"><span class="uppercase">Casual Conversation</span>&NewLine;By Renia White</h4>
+								<p class="card__description">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both
+								what we say to each other and what we don't, examining the possibilities around how we construct and communicate
+								identity.</p>
+								<button class="card__button button" data-author="Renia White" data-title="Casual Conversation">Buy</button>
+								<img class="card__image" src="./assets/images/book_covers/autumn/casual_conversation.png" alt="Casual Conversation By Renia White">
+							</div>
+							<div class="card" data-season="autumn">
+								<div class="card__logo">Staff Picks</div>
+								<h4 class="card__title"><span class="uppercase">The Great Fire</span>&NewLine;By Lou Ureneck</h4>
+								<p class="card__description">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led
+								an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide</p>
+								<button class="card__button button" data-author="Lou Ureneck" data-title="The Great Fire">Buy</button>
+								<img class="card__image" src="./assets/images/book_covers/autumn/the_great_fire.png" alt="The Great Fire By Lou Ureneck">
+							</div>
+							<div class="card" data-season="autumn">
+								<div class="card__logo">Staff Picks</div>
+								<h4 class="card__title"><span class="uppercase">Rickey: The Life and Legend</span>&NewLine;By Howard Bryant</h4>
+								<p class="card__description">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to
+								prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey
+								Henderson?</p>
+								<button class="card__button button" data-author="Howard Bryant" data-title="Rickey: The Life and Legend">Buy</button>
+								<img class="card__image" src="./assets/images/book_covers/autumn/rickey.png" alt="Rickey: The Life and Legend By Howard Bryant">
+							</div>
+							<div class="card" data-season="autumn">
+								<div class="card__logo">Staff Picks</div>
+								<h4 class="card__title"><span class="uppercase">Slug: And Other Stories</span>&NewLine;By Megan Milks</h4>
+								<p class="card__description">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the
+								shared trauma of giving birth to gods from their wounds.</p>
+								<button class="card__button button" data-author="Megan Milks" data-title="Slug: And Other Stories">Buy</button>
+								<img class="card__image" src="./assets/images/book_covers/autumn/slug_and_other_stories.png" alt="Slug: And Other Stories By Megan Milks">
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="_wrapper" id="coffee-shop">
+			<div class="section-content">
+				<h2 class="section__title">Coffee shop</h2>
+				<p class="section__text coffee-shop__text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts
+				from bakery.</p>
+				<div class="menu">
+					<div class="menu__section">
+						<h4 class="menu__title">Coffee & Tea</h4>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<span class="menu__name">Cold Brew Coffee</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$3</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">French Press Pot</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$5</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Espresso</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$2</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Cappuccino</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$4</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Hot tea</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$2</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Cold tea</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$2</span>
+							</li>
+						</ul>
+					</div>
+					<div class="menu__section align-right">
+						<h4 class="menu__title">Desserts & Cakes</h4>
+						<ul class="menu__list ">
+							<li class="menu__item">
+								<span class="menu__name">Forest Gateau</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$16</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Blue Moon</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$16</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Truffle Cake</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$15</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Chocolate Cake</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$18</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Poet’s Dream Cake</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$16</span>
+							</li>
+							<li class="menu__item">
+								<span class="menu__name">Pineapple Cake</span>
+								<div class="menu__line"></div>
+								<span class="menu__price">$14</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="_wrapper" id="contacts">
+			<div class="section-content">
+				<h2 class="section__title">Our Contacts</h2>
+				<div class="contact-info">
+					<div class="contacts">
+						<h5 class="contacts__header">For all Library inquiries:</h5>
+						<address class="contacts__phones">
+							<p>Please call <a class="tel link" href="tel:(617)730-2370">(617) 730-2370</a></p>
+							<p>For TTY service, please call <a class="tel link" href="tel:(617)730-2370">(617) 730-2370</a></p>
+							<p>Putterham Library: <a class="tel link" href="tel:(617)730-2385">(617) 730-2385</a></p>
+						</address>
+						<div class="contacts__staff">
+							<h5 class="contacts__header">Senior Staff</h5>
+							<p>Library Director: <a class="mail-link link" href="mailto:amandahirst@gmail.com">Amanda Hirst</a></p>
+						</div>
+					</div>
+					<img src="./assets/images/map.png" alt="map" class="section__map">
+				</div>
+			</div>
+		</section>
+		<section class="_wrapper" id="library-card">
+			<div class="section-content">
+				<h2 class="section__title">Digital Library Cards</h2>
+				<div class="forms-wrapper">
+					<div class="find-card">
+						<h4 class="find-card__title">Find your Library card</h4>
+						<form class="card-form" action="/" id="card-form">
+							<div class="card-form__inputs">
+								<p class="card-form__label">Brooklyn Public Library</p>
+								<input
+									class="card-form__input text-input"
+									type="text"
+									name="card-data"
+									id="readersName"
+									placeholder="Reader's name"
+									pattern="^[a-zA-Z]+\s[a-zA-Z]+$"
+									title="enter your first name and last name separated by a single space character"
+									>
+								<input
+									class="card-form__input text-input"
+									type="text"
+									name="card-data"
+									id="cardNumber"
+									placeholder="Card number"
+									pattern="[\dA-Fa-f]{9}"
+									title="enter a valid 9 character card number">
+							</div>
+							<button class="button card-form__submit" type="submit" value="checkCard">Check the card</button>
+							<div class="card-profile">
+								<div class="card-profile__item">
+									<span class="card-profile__title">Visits</span>
+									<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon">
+									<span class="card-profile__count" data-profile="visitCount">23</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Bonuses</span>
+									<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon">
+									<span class="card-profile__count" data-profile="bounces">1240</span>
+								</div>
+								<div class="card-profile__item">
+									<span class="card-profile__title">Books</span>
+									<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon">
+									<span class="card-profile__count" data-profile="books">2</span>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="get-card" data-login="false">
+						<h4 class="get-card__title">Get a reader card</h4>
+						<p class="get-card__description">You will be able to see a reader card after logging into account or you can register a new account</p>
+						<div class="get-card__buttons">
+							<button class="button get-card__button" value="modal-sign-up">Sign Up</button>
+							<button class="button get-card__button" value="modal-log-in">Log in</button>
+						</div>
+					</div>
+					<div class="get-card" data-login="true">
+						<h4 class="get-card__title">Visit your profile</h4>
+						<p class="get-card__description">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+						<div class="get-card__buttons">
+							<button class="button get-card__button" value="modal-profile">Profile</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer-container full-bleed">
+		<div class="footer-content _wrapper">
+			<div class="footer__top">
+				<address class="footer__section">
+					<a class="address link" href="https://goo.gl/maps/eNK2HeuAZfJJ81ad9">286 Cadman Plaza, New York,&NewLine;NY 11238, United States</a>
+					<ul class="social-media">
+						<li>
+							<a class="social-media__link icon-link .icon-link_active" href="https://twitter.com/?lang=ru">
+								<img class="social-media__icon" src="./assets/icons/u_twitter-alt.svg" alt="twitter icon">
+							</a>
+						</li>
+						<li>
+							<a class="social-media__link icon-link" href="https://www.instagram.com/">
+								<img class="social-media__icon" src="./assets/icons/u_instagram.svg" alt="instagram icon">
+							</a>
+						</li>
+						<li>
+							<a class="social-media__link icon-link" href="https://ru-ru.facebook.com/">
+								<img class="social-media__icon" src="./assets/icons/u_facebook-f.svg" alt="facebook icon">
+							</a>
+						</li>
+					</ul>
+				</address>
+				<div class="footer__section">
+					<p class="work-schedule">Mon - Fri&NewLine;08:00 am - 07:00 pm</p>
+					<p class="work-schedule">Sat - Sun&NewLine;10:00 am - 06:00 pm</p>
+				</div>
+			</div>
+			<div class="divider"></div>
+			<div class="footer__bottom">
+				<span class="year">2023</span>
+				<a href="https://rs.school/js-stage0/" class="course-link link">The Rolling Scopes School</a>
+				<a href="https://github.com/Slumrag" class="user-profile link">Slumrag</a>
+			</div>
+		</div>
+	</footer>
+	<dialog class="modal" id="sign-up-modal">
+		<div class="modal__content">
+			<button class="modal__close"><div></div>
+			<div></div></button>
+			<h2 class="modal__title">register</h2>
+			<form action="" class="modal-form">
+				<fieldset class="modal-form__fields">
+					<div class="modal-form__text-field">
+						<label for="firstName" class="text-label">First name</label>
+						<input required class="modal-form__text-input text-input" type="text" id="firstName" pattern="\w+" title="input must contain more then one character">
+					</div>
+					<div class="modal-form__text-field">
+						<label for="lastName" class="text-label">Last name</label>
+						<input required class="modal-form__text-input text-input" type="text" id="lastName" pattern="\w+" title="input must contain more then one character">
+					</div>
+					<div class="modal-form__text-field">
+						<label for="email" class="text-label">E-mail</label>
+						<input required class="modal-form__text-input text-input" type="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="input must be a valid e-mail address">
+					</div>
+					<div class="modal-form__text-field">
+						<label for="password" class="text-label">Password</label>
+						<input required class="modal-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
+					</div>
+				</fieldset>
+				<button class="modal-form__submit button" type="submit" value="sign-up">Sign Up</button>
+			</form>
+			<div class="annotation">
+				<p class="annotation__text">Already have an account?</p>
+				<button class="annotation__button" value="modal-log-in">Login</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="log-in-modal">
+		<div class="modal__content">
+			<button class="modal__close"><div></div>
+			<div></div></button>
+			<h2 class="modal__title">Login</h2>
+			<form action="" class="modal-form">
+				<fieldset class="modal-form__fields">
+					<div class="modal-form__text-field">
+						<label for="emailCardNumber" class="text-label">E-mail or readers card</label>
+						<input required class="modal-form__text-input text-input" type="text" id="emailCardNumber" pattern="([^@\s]+@[^@\s]+\.[^@\s]+)|([\dA-Fa-f]{9})" title="input must be a valid e-mail address or a valid card number">
+					</div>
+					<div class="modal-form__text-field">
+						<label for="password" class="text-label">Password</label>
+						<input required class="modal-form__text-input text-input" type="password" id="password" pattern=".{8,}" title="password must be over 8 characters long">
+					</div>
+				</fieldset>
+				<button class="modal-form__submit button" type="submit" value="log-in">Log in</button>
+			</form>
+			<div class="annotation">
+				<p class="annotation__text">Don’t have an account?</p>
+				<button class="annotation__button" value="modal-sign-up">Register</button>
+			</div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="profile-modal">
+		<div class="modal__content">
+			<button class="modal__close">
+				<div></div>
+				<div></div>
+			</button>
+			<div class="profile">
+				<div class="profile__user">
+					<div class="profile__initials">
+
+					</div>
+					<p class="profile__name">John Doe</p>
+				</div>
+				<div class="profile__info">
+					<h2 class="profile__title">my profile</h2>
+					<div class="card-profile">
+						<div class="card-profile__item">
+							<span class="card-profile__title">Visits</span>
+							<img class="card-profile__icon" src="./assets/icons/person.svg" alt="person icon">
+							<span class="card-profile__count" data-profile="visitCount">23</span>
+						</div>
+						<div class="card-profile__item">
+							<span class="card-profile__title">Bonuses</span>
+							<img class="card-profile__icon" src="./assets/icons/star.svg" alt="star icon">
+							<span class="card-profile__count" data-profile="bounces">1240</span>
+						</div>
+						<div class="card-profile__item">
+							<span class="card-profile__title">Books</span>
+							<img class="card-profile__icon" src="./assets/icons/book.svg" alt="book icon">
+							<span class="card-profile__count" data-profile="books">2</span>
+						</div>
+					</div>
+					<div class="book-list">
+						<p class="book-list__title">Rented books</p>
+						<ul class="book-list__list">
+
+						</ul>
+					</div>
+					<div class="card-number">
+						Card number<span class="highlighted">F00234030</span>
+						<button class="copy-button" title="copy card number"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+							<rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+							<rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5" />
+						</svg>
+					</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="buy-card-modal">
+		<div class="modal__content">
+			<button class="modal__close">
+				<div></div>
+				<div></div>
+			</button>
+			<h2 class="modal__title">Buy a library card</h2>
+			<div class="modal__wrapper">
+				<form action="" class="modal-form">
+					<fieldset class="modal-form__fields">
+						<div class="modal-form__text-field">
+							<label for="bankCardNumber" class="text-label">Bank card number</label>
+							<input required class="modal-form__text-input text-input" type="text" id="bankCardNumber"
+								pattern="(^[\d]{16}$)|(^[\d]{4}\s[\d]{4}\s[\d]{4}\s[\d]{4}$)"
+								title="input must be a valid 16 digit bank card number">
+						</div>
+						<div class="modal-form__text-field">
+							<label for="month" class="text-label">Expiration code</label>
+							<div class="expiration-code">
+								<input required class="modal-form__text-input text-input" type="text" id="month"
+									pattern="^\d{2}$" title="month number">
+								<input required class="modal-form__text-input text-input" type="text" id="year"
+									pattern="^\d{2}$" title="last two digits of year">
+							</div>
+						</div>
+						<div class="modal-form__text-field">
+							<label for="cvc" class="text-label">CVC</label>
+							<input required class="modal-form__text-input text-input" type="password" id="cvc"
+								pattern="^\d{3}$"
+								title="three digit CVC code">
+						</div>
+						<div class="modal-form__text-field">
+							<label for="cardholderName" class="text-label">Cardholder name</label>
+							<input required class="modal-form__text-input text-input" type="text" id="cardholderName"
+								pattern="^[a-zA-Z]+\s[a-zA-Z]+$"
+								title="enter your first name and last name separated by a single space character">
+						</div>
+						<div class="modal-form__text-field">
+							<label for="postalCode" class="text-label">Postal code</label>
+							<input required class="modal-form__text-input text-input" type="text" id="postalCode"
+								pattern="^\d{5}$"
+								title="enter your 5 digit postal code ">
+						</div>
+						<div class="modal-form__text-field">
+							<label for="city" class="text-label">City / Town</label>
+							<input required class="modal-form__text-input text-input" type="text" id="city"
+								pattern="^[\w ]+$"
+								title="enter your 5 digit postal code ">
+						</div>
+					</fieldset>
+					<div class="modal-form__buy">
+						<button disabled class="modal-form__submit button" type="submit" value="buy">Buy</button>
+						<p class="modal-form__price">$ 25.00</p>
+					</div>
+				</form>
+				<p class="modal__description">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card
+				right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+	</p>
+			</div>
+		</div>
+	</dialog>
+</body>
+</html>

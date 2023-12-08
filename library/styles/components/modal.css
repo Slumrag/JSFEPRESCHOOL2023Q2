@@ -1,0 +1,86 @@
+.modal::backdrop {
+	background: #000000;
+	opacity: 0.7;
+}
+
+.modal__content {
+	padding: 20px 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: none;
+	overflow: hidden;
+	background: var(--text-color-light);
+}
+#sign-up-modal .modal__content{
+	width: 250px;
+	height: 382px;
+}
+#log-in-modal .modal__content {
+	width: 250px;
+	height: 262px;
+}
+
+.modal__close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 15px;
+	height: 15px;
+	transition: scale var(--transition-120);
+}
+
+.modal__close:hover {
+	cursor: pointer;
+}
+
+.modal__close:active {
+	scale: 1.2;
+}
+
+.modal__close>div {
+	position: absolute;
+	top: calc(50% - 3px / 2);
+	left: calc(50% - 19px / 2);
+	width: 19px;
+	height: 3px;
+
+	background: var(--bg-color);
+}
+
+.modal__close>div:nth-child(1) {
+	transform: rotate(45deg);
+}
+
+.modal__close>div:nth-child(2) {
+	transform: rotate(-45deg);
+}
+
+.modal__title {
+	text-transform: uppercase;
+	font-size: 2rem;
+	line-height: 2rem;
+}
+.annotation {
+	display: flex;
+	gap: 10px;
+	font-size: 1rem;
+	align-self: start;
+	line-height: normal;
+}
+
+.annotation__button {
+	font-weight: 700;
+	text-decoration: underline;
+	letter-spacing: 1px;
+	color: var(--bg-color);
+	transition: scale var(--transition-120);
+}
+
+.annotation__button:hover {
+	cursor: pointer;
+}
+
+.annotation__button:active {
+	scale: 1.1;
+}
