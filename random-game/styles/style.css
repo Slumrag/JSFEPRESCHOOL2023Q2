@@ -1,0 +1,20 @@
+@import url(./fonts.css);
+@import url(./vars.css);
+@import url(./reset.css);
+@import url(./common.css);
+@import url(./modal.css);
+@import url(./components/game.css);
+@import url(./components/footer.css);
+@import url(./components/scoreboard.css);
+@import url(./components/start-screen.css);
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  font-family: 'Pixeloid mono', monospace;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}

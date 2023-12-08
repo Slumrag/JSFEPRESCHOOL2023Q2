@@ -1,0 +1,52 @@
+.modal {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.modal::backdrop {
+  background: var(--color-primary);
+  opacity: 0.9;
+}
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: var(--border) var(--color-primary);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+.modal__title {
+  font-size: 2.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.modal__score {
+  font-size: 1.2em;
+  margin: 0.2em 0;
+}
+.modal__score span {
+  font-weight: bold;
+}
+.modal__description {
+  text-align: center;
+  line-height: 1.5rem;
+}
+.modal__button {
+  margin-top: auto;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.game-over-screen {
+  width: 350px;
+  height: 250px;
+  padding: 20px 20px;
+  gap: 10px;
+}
+
+.game-win-screen {
+  padding: 20px;
+  gap: 2em;
+}

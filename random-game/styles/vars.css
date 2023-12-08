@@ -1,0 +1,6 @@
+:root,
+::backdrop {
+  --color-primary: #1c3522;
+  --color-secondary: #54a065;
+  --border: 3px solid;
+}
