@@ -1,0 +1,63 @@
+.coffee-shop__text {
+	text-align: center;
+	font-size: 2rem;
+}
+.menu {
+	display: flex;
+	align-self: stretch;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 40px;
+}
+
+.menu__section {
+	display: flex;
+	flex-direction: column;
+	justify-self: start;
+	gap: 40px;
+}
+.menu__section:nth-child(2) {
+	flex-grow: 1;
+	text-align: end;
+}
+
+.menu__title {
+	font-size: 4rem;
+	line-height: 4rem;
+	letter-spacing: 2px;
+	color:var(--color-active);
+}
+
+.menu__list {
+	display: flex;
+	flex-direction: column;
+	gap:40px;
+}
+
+.menu__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 60px;
+
+	line-height: 4rem;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
+.menu__name {
+	flex: 1;
+}
+
+.menu__line {
+	height: 1px;
+	width: 100px;
+	background: var(--color-active);
+}
+
+.menu__price {
+	font:var(--header-font);
+	font-size: 2rem;
+	line-height: 4rem;
+	letter-spacing: 1px;
+}

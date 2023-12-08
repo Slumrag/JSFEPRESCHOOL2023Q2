@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	scroll-behavior: smooth;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font: var(--content-font);
+	overflow-x: hidden;
+}
+
+ol,
+ul,
+dl,
+menu,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font: var(--header-font);
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+button,
+input,
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+}
+
+input[type=radio] {
+	margin: 0;
+	-webkit-appearance: none;
+	appearance: none;
+	/* For iOS < 15 to remove gradient background */
+	background-color: transparent;
+	font: inherit;
+}
+address {
+	font-style: normal;
+}
+dialog{
+	padding: 0;
+	background: none;
+	border:none;
+}
